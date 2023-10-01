@@ -13,21 +13,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-
+    @include('layout.navbarUser')
         <div class="container">
             <!-- Barra de navegacion-->
-            <nav class="nav-main">
-                <h1>CrowdFunding</h1>
-                <ul>
-                    <li><a href="#"> Sobre Nosotros</a></li>
 
-                    <li><a href="#">Mi bosque Personal</a></li>
-
-                    <li ><a href="#">Donar</a></li>
-
-                    <li><a href="#">Proyectos</a></li>
-                </ul>
-            </nav>
             <!--Seccion de Bienvenida -->
             <div class="welcome-section">
                 <div class="header-container">
