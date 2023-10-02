@@ -12,7 +12,8 @@ body {
 }
 
 .card {
-    min-height: 350px;
+    height: 500px;
+    width: 350px;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin: 25px;
@@ -24,6 +25,12 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+
+.card-body {
+    min-height: 150px; /* Ajusta la altura mínima según tus necesidades */
+}
+
 
 .card img {
     width: 100%;
