@@ -9,7 +9,7 @@
 .nav-links {
     display: flex;
     align-items: center;
-    background: #f2e8cf;
+    background: #ffffff;
     padding: 20px 15px;
     border-radius: 12px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -17,13 +17,13 @@
 
 .nav-links li {
     list-style: none;
-    margin: 0 50px;
+    margin: 0 30px;
 }
 
 .nav-links li.titulo {
-    text-align: left;
-    flex-grow: 1;
+    flex-grow: 2;
     font-weight: bold;
+    text-align: center;
     font-size: 30px;
 }
 
@@ -60,7 +60,7 @@
 }
 
 .nav-links li.upward a:before {
-    width: 100%;
+    flex: 1;
     bottom: -5px;
     opacity: 0;
 }
