@@ -25,6 +25,11 @@
                 <div class="text-container">
                     <p class="text-section">Apoya a los proyectos de reforestacion de Bolivia</p>
                 </div>
+                <div class="boton-container">
+                    <a href="#" class="boton-donar">
+                        Donar
+                    </a>
+                </div>
             </div>
             <!-- Mision y arboles plantados -->
             <div class="secciones">
