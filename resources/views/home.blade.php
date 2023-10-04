@@ -16,7 +16,6 @@
     <!-- Barra de navegacion-->
     @include('layout.navbarProy')
 
-<<<<<<< HEAD
     <!--Seccion de Bienvenida -->
     <div class="welcome-section">
         <div class="header-container">
@@ -25,28 +24,14 @@
         <div class="text-container">
             <p class="text-section">Apoya a los proyectos de reforestacion de Bolivia</p>
         </div>
+        <div class="boton-container">
+            <a href="#" class="boton-donar">
+                Donar
+            </a>
+        </div>
     </div>
     <!-- Mision y arboles plantados -->
     <div class="secciones">
-=======
-            <!--Seccion de Bienvenida -->
-            <div class="welcome-section">
-                <div class="header-container">
-                    <h2>CrowdFunding</h2>
-                </div>
-                <div class="text-container">
-                    <p class="text-section">Apoya a los proyectos de reforestacion de Bolivia</p>
-                </div>
-                <div class="boton-container">
-                    <a href="#" class="boton-donar">
-                        Donar
-                    </a>
-                </div>
-            </div>
-            <!-- Mision y arboles plantados -->
-            <div class="secciones">
->>>>>>> main
-
         <div class="donados">
             <div class="donados-container">
                 <h2 class="header-arboles">Arboles donados</h2>
@@ -73,7 +58,7 @@
         </div>
     </div>
 </div>
-</div>
+
 
 
 </body>

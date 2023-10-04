@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Nosotros</title>
 
-    <link rel="stylesheet" href="/public/css/contribuitors-views.css">
+    <link rel="stylesheet" href="/css/contribuitors-views.css">
 </head>
 <body>
 <div class="container">
