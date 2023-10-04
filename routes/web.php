@@ -16,5 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/quienessomos', function () {
+    return view('contribuidores/view');
+});
 
 
