@@ -19,5 +19,7 @@ Route::get('/', function () {
 Route::get('/quienessomos', function () {
     return view('contribuidores/view');
 });
-
+Route::get('/map', function () {
+    return view('MapsAPI/Map');
+});
 
