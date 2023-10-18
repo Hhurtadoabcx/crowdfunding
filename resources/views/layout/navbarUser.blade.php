@@ -7,9 +7,9 @@
 <body>
 <ul class="nav-links">
     <li class="titulo">CrowdFunding</li>
-    <li class="upward"><a href="#">Quienes Somos</a></li>
+    <li class="upward"><a href="/quienessomos">Quienes Somos</a></li>
     <li class="upward"><a href="#">Mision</a></li>
-    <li class="upward"><a href="#">Mi Bosque Personal</a></li>
+    <li class="upward"><a href="/login">Mi Bosque Personal</a></li>
 </ul>
 </body>
 </html>
