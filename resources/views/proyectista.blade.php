@@ -39,7 +39,7 @@
             <div class="form-cont">
                 <h2 class="form-header">SELECCIONE LOS ARBOLES DISPONIBLES PARA EL PROYECTO</h2>
                 <p class="form-p">Haz click en uno de los botones verdes para seleccionar el tipo de árboles y los datos pertinentes al proyecto.</p>
-                <form>
+                <form onsubmit="submitForm(); return false;">
                     <div class="checkbox-container">
                         <div class="form-checkboxes">
                             <label class="form-control">

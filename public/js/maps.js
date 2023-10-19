@@ -1,5 +1,6 @@
 var mapa;
 var marcador; // Variable para almacenar el marcador único
+var marcadorPosicion; // Variable para almacenar la posición del marcador
 
 function agregarMarcador(mapa, posicion) {
     // Eliminar cualquier marcador existente
@@ -12,22 +13,18 @@ function agregarMarcador(mapa, posicion) {
         position: posicion,
         map: mapa
     });
+
+    marcadorPosicion = posicion;
 }
 
 function initMap() {
     mapa = new google.maps.Map(document.getElementById('MapDiv'), {
-        zoom: 8,
-        center: {lat: -17.7833, lng: -63.1821},
-        gestureHandling: "greedy",
         zoomControl: false,
         minZoom: 15,
-        maxZoom: 20,
-        styles: [
-            {
-                featureType: 'poi',
-                stylers: [{visibility: 'off'}]
-            }
-        ]
+        maxZoom: 25,
+        zoom:15,
+        center: {lat: -17.787196890846058, lng: -63.18408002300712}
+
     });
 
     // Agregar un listener de clic al mapa
@@ -35,4 +32,13 @@ function initMap() {
         var posicion = event.latLng;
         agregarMarcador(mapa, posicion);
     });
+}
+
+function submitForm() {
+    // ... (tu código para manejar el envío del formulario)
+
+    // Imprimir las coordenadas del marcador en la consola
+    if (marcadorPosicion) {
+        console.log("Coordenadas del marcador:", marcadorPosicion.lat(), marcadorPosicion.lng());
+    }
 }
