@@ -12,7 +12,7 @@
 
 </head>
 <body>
-
+<script src="/js/maps.js"></script>
 <div class="container" style="margin-top: 50px;">
 
     <h4 class="text-center">Laravel RealTime CRUD Using Google Firebase</h4><br>

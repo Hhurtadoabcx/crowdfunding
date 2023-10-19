@@ -9,9 +9,11 @@
     <!--FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initMap" async defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
+<script src="/js/maps.js"></script>
 <div class="container">
     @include('layout.navbarProy')
     <div class="disclaimer-section">
@@ -102,7 +104,7 @@
                         <div class="input-container">
                             <div class="form-input">
                                 <label class="label-input">Dirección del terreno</label>
-                                <input type="text" class="input" placeholder="Dirección del terreno">
+                                <div id="MapDiv"></div>
                             </div>
                         </div>
                         <div class="group-input-container">

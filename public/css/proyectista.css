@@ -250,3 +250,7 @@ ul{
     transform: scale(1.1);
     cursor:pointer;
 }
+#MapDiv {
+    height: 400px;
+    width: 100%;
+}
