@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initMap" async defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
 </head>
+
 <body>
 <script src="/js/maps.js"></script>
 <div class="container">
@@ -32,68 +34,34 @@
     <div class="form-container">
         <div class="text-form">
             <h2 class="text1">Crea una iniciativa de reforestacion.</h2>
-            <h2 class="text2">Siga los pasos descritos en el formulario a continuación para crear un proyecto de reforestacion.
-                Al finalizar el formulario. los donantes podran contribuir donando al proyecto.</h2>
+            <h2 class="text2">Siga los pasos descritos en el formulario a continuación para crear un proyecto de reforestacion. Al finalizar el formulario. los donantes podrán contribuir donando al proyecto.</h2>
         </div>
         <div class="form">
             <div class="form-cont">
-                <h2 class="form-header">SELECCIONE LOS ARBOLES DISPONIBLES PARA EL PROYECTO</h2>
-                <p class="form-p">Haz click en uno de los botones verdes para seleccionar el tipo de árboles y los datos pertinentes al proyecto.</p>
-                <form onsubmit="submitForm(); return false;">
-                    <div class="checkbox-container">
-                        <div class="form-checkboxes">
-                            <label class="form-control">
-                                <input type="checkbox" name="checkbox" />
-                                Totaí
-                            </label>
-                            <label class="form-control">
-                                <input type="checkbox" name="checkbox-checked" checked />
-                                Achachairu
-                            </label>
-
-                            <label class="form-control">
-                                <input type="checkbox" name="checkbox-checked" checked />
-                                Copaibó
-                            </label>
-                        </div>
-                        <div class="form-checkboxes">
-                            <label class="form-control">
-                                <input type="checkbox" name="checkbox" />
-                                Toborochi
-                            </label>
-                            <label class="form-control">
-                                <input type="checkbox" name="checkbox-checked" checked />
-                                Tajibo
-                            </label>
-                            <label class="form-control">
-                                <input type="checkbox" name="checkbox-checked" checked />
-                                Bibosi
-                            </label>
-
-                        </div>
-                    </div>
+                <form action="{{ route('proyectista.store') }}" method="POST">
+                    @csrf
                     <fieldset class="fieldset-proyectista">
                         <legend class="legend-proyectista"> Datos personales</legend>
                         <div class="input-container">
                             <div class="form-input">
                                 <label class="label-input">Nombre completo</label>
-                                <input type="text" class="input" placeholder="Nombre completo">
+                                <input type="text" class="input" name="nombre_completo" placeholder="Nombre completo">
                             </div>
                         </div>
                         <div class="group-input-container">
                             <div class="form-input">
                                 <label class="label-input">C.I</label>
-                                <input type="number" class="input" placeholder="C.I">
+                                <input type="number" class="input" name="ci" placeholder="C.I">
                             </div>
                             <div class="form-input">
                                 <label class="label-input">Correo electronico</label>
-                                <input type="email" class="input" placeholder="Correo electrónico">
+                                <input type="email" class="input" name="email" placeholder="Correo electrónico">
                             </div>
                         </div>
                         <div class="input-container">
                             <div class="form-input">
                                 <label class="label-input">Número de teléfono</label>
-                                <input type="text" class="input" placeholder="Número de telf.">
+                                <input type="text" class="input" name="telefono" placeholder="Número de telf.">
                             </div>
                         </div>
                     </fieldset>
@@ -109,18 +77,8 @@
                         </div>
                         <div class="group-input-container">
                             <div class="form-input">
-                                <label class="label-input">Municipio</label>
-                                <input type="number" class="input" placeholder="Municipio">
-                            </div>
-                            <div class="form-input">
                                 <label class="label-input">Metros cuadrados</label>
-                                <input type="number" class="input" placeholder="Metros cuadrados">
-                            </div>
-                        </div>
-                        <div class="input-container">
-                            <div class="form-input">
-                                <label class="label-input">Datos de referencia</label>
-                                <input type="text" class="input" placeholder="Datos de referencia">
+                                <input type="number" class="input" name="metros_cuadrados" placeholder="Metros cuadrados">
                             </div>
                         </div>
                     </fieldset>
@@ -133,6 +91,5 @@
     </div>
 </div>
 </body>
-<?php
 
-?>
+</html>

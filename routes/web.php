@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProyectistaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('login/{provider}/callback', 'App\Http\Controllers\Auth\LoginController@handleCallback');
+Route::post('/proyectista', [ProyectistaController::class, 'store'])->name('proyectista.store');
