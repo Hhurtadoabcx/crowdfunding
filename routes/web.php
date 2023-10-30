@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProyectistaController;
+use App\Http\Controllers\Firebase\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +28,8 @@ Route::get('/creaunproyecto', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('proyectista.store',[ContactController::class, 'create']);
+Route::post('proyectista.store',[ContactController::class, 'store']);
 
 Route::post('login/{provider}/callback', 'App\Http\Controllers\Auth\LoginController@handleCallback');
-Route::post('/proyectista', [ProyectistaController::class, 'store'])->name('proyectista.store');
+//Route::post('/proyectista', [\App\Http\Controllers\Firebase\ContactController::class, 'store'])->name('proyectista.store');

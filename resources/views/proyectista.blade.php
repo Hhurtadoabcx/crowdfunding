@@ -25,11 +25,7 @@
         <div class="text-container">
             <p class="text-section">Tu iniciativa es muy importante para la meta que queremos lograr</p>
         </div>
-        <div class="boton-container">
-            <a href="#" class="boton-donar">
-                Donar
-            </a>
-        </div>
+
     </div>
     <div class="form-container">
         <div class="text-form">
@@ -38,7 +34,10 @@
         </div>
         <div class="form">
             <div class="form-cont">
-                <form action="{{ route('proyectista.store') }}" method="POST">
+                <form action="{{ url('proyectista.store') }}" method="POST">
+                    @if(session('status'))
+                        <h4> {{session('status')}}</h4>
+                    @endif
                     @csrf
                     <fieldset class="fieldset-proyectista">
                         <legend class="legend-proyectista"> Datos personales</legend>
