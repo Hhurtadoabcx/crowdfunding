@@ -14,21 +14,8 @@ function agregarMarcador(mapa, posicion) {
         map: mapa
     });
 
-    // Actualizar los campos de latitud y longitud en el formulario
     marcadorPosicion = posicion;
-    if (marcadorPosicion) {
-        var latitud = marcadorPosicion.lat();
-        var longitud = marcadorPosicion.lng();
-        console.log('Latitud:', latitud);
-        console.log('Longitud:', longitud);
-        document.getElementById('latitud').value = latitud;
-        document.getElementById('longitud').value = longitud;
-
-        // Actualizar el campo de coordenadas
-        document.getElementById('coordenadas').value = latitud + ',' + longitud;
-    }
 }
-
 
 function initMap() {
     mapa = new google.maps.Map(document.getElementById('MapDiv'), {
@@ -46,25 +33,12 @@ function initMap() {
         agregarMarcador(mapa, posicion);
     });
 }
+
 function submitForm() {
-    // Update hidden input field with latitude and longitude
+    // ... (tu código para manejar el envío del formulario)
+
+    // Imprimir las coordenadas del marcador en la consola
     if (marcadorPosicion) {
-        var latitud = marcadorPosicion.lat();
-        var longitud = marcadorPosicion.lng();
-        console.log('Latitud:', latitud);
-        console.log('Longitud:', longitud);
-        document.getElementById('latitud').value = latitud;
-        document.getElementById('longitud').value = longitud;
-
-        // Update the coordinates field
-        document.getElementById('coordenadas').value = latitud + ', ' + longitud;
+        console.log("Coordenadas del marcador:", marcadorPosicion.lat(), marcadorPosicion.lng());
     }
-
-    // Continue with form submission
-    return true;
 }
-
-
-
-
-

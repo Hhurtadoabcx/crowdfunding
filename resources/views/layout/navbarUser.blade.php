@@ -6,6 +6,7 @@
 </head>
 <body>
 <ul class="nav-links">
+    <li class="upward"><a href="/verproyectos">Ver Proyectos</a></li>
     <li class="titulo">CrowdFunding</li>
     <li class="upward"><a href="#">Quienes Somos</a></li>
     <li class="upward"><a href="#">Mision</a></li>

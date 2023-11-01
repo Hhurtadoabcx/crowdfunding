@@ -25,6 +25,11 @@ Route::get('/creaunproyecto', function () {
     return view('proyectista');
 });
 
+Route::get('/verproyectos', function (){
+return view('verproyectos');
+});
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
