@@ -10,12 +10,12 @@
     <!--FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="/js/maps.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-_omB7z7XO698LS-QdZfcovmFI4XLODM&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initMap" async defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
 </head>
 
 <body>
+<script src="/js/maps.js"></script>
 <div class="container">
     @include('layout.navbarProy')
     <div class="disclaimer-section">
@@ -34,7 +34,7 @@
         </div>
         <div class="form">
             <div class="form-cont">
-                <form action="{{ route('proyectista.store') }}" method="POST" onsubmit="return submitForm()">
+                <form action="{{ url('proyectista.store') }}" method="POST" onsubmit="return submitForm()">
                     @if(session('status'))
                         <h4> {{session('status')}}</h4>
                     @endif
@@ -103,17 +103,18 @@
                             <div class="input-container">
                                 <div class="form-input">
                                     <label class="label-input">Dirección del terreno</label>
+                                    <input  id="latitud" name="latitud" placeholder="latitud" type="hidden">
+                                    <input  id="longitud" name="longitud" placeholder="longitud" type="hidden">
+                                    <input  id="coordenadas" name="coordenadas" placeholder="coordenadas" type="hidden">
                                     <div id="MapDiv" name="mapa">
-                                        <input type="hidden" id="latitud" name="latitud">
-                                        <input type="hidden" id="longitud" name="longitud">
-                                        <input type="hidden" id="coordenadas" name="coordenadas">
+
                                     </div>
                                 </div>
                             </div>
                             <div class="group-input-container">
                                 <div class="form-input">
                                     <label class="label-input">Municipio</label>
-                                    <input type="number" class="input" placeholder="Municipio" name="municipio">
+                                    <input type="text" class="input" placeholder="Municipio" name="municipio">
                                 </div>
                                 <div class="form-input">
                                     <label class="label-input">Metros cuadrados</label>
