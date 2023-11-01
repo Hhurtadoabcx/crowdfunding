@@ -33,12 +33,25 @@ function initMap() {
         agregarMarcador(mapa, posicion);
     });
 }
-
 function submitForm() {
-    // ... (tu código para manejar el envío del formulario)
-
-    // Imprimir las coordenadas del marcador en la consola
+    // Update hidden input field with latitude and longitude
     if (marcadorPosicion) {
-        console.log("Coordenadas del marcador:", marcadorPosicion.lat(), marcadorPosicion.lng());
+        var latitud = marcadorPosicion.lat();
+        var longitud = marcadorPosicion.lng();
+        console.log('Latitud:', latitud);
+        console.log('Longitud:', longitud);
+        document.getElementById('latitud').value = latitud;
+        document.getElementById('longitud').value = longitud;
+
+        // Update the coordinates field
+        document.getElementById('coordenadas').value = latitud + ',' + longitud;
     }
+
+    // Continue with form submission
+    return true;
 }
+
+
+
+
+
