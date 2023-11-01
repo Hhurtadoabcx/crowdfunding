@@ -16,11 +16,11 @@ class ContactController extends Controller
     public Function index(){
 
 
-        return view('home');
+        return view('creaunproyecto');
     }
 
     public function create(){
-        return view('home');
+        return view('creaunproyecto');
     }
 
     public function store(Request $request){
@@ -34,7 +34,7 @@ class ContactController extends Controller
         ];
         $postRef = $this->database->getReference($this->tablename)->push($postData);
         if($postRef){
-            return redirect('proyectista')->with('status','Proyectista agregado con exito');
+            return redirect('creaunproyecto')->with('status','Proyectista agregado con exito');
         }
         else{
             return redirect('proyectista')->with('status','Error, no se agrego al proyectista');
