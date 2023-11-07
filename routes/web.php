@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Firebase\ContactController;
+use App\Http\Controllers\ProyectistaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,7 @@ Route::get('/creaunproyecto', function () {
     return view('proyectista');
 });
 
-Route::get('/verproyectos', function (){
-return view('verproyectos');
-});
+Route::get('/verproyectos', [ProyectistaController::class, 'mostrarProyectos']);
 
 
 Auth::routes();

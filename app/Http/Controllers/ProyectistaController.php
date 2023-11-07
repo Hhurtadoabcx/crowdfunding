@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Kreait\Firebase\Factory;
-
+use Kreait\Firebase\Database;
 
 use Illuminate\Http\Request;
 
@@ -22,7 +22,6 @@ class ProyectistaController extends Controller
         $factory = (new Factory)->withServiceAccount(base_path(env('FIREBASE_CREDENTIALS')));
         $firestore = $factory->createFirestore();
 
-
         // Accede a la colección 'proyectista' y guarda los datos
         $firestore->collection('proyectista')->add([
             'nombre_completo' => $nombreCompleto,
@@ -35,4 +34,19 @@ class ProyectistaController extends Controller
 
         return redirect()->back()->with('success', 'Proyecto creado exitosamente!');
     }
+
+    public function mostrarProyectos()
+    {
+        $factory = (new Factory)
+            ->withDatabaseUri(env('FIREBASE_DATABASE_URL'));
+
+        $database = $factory->createDatabase();
+
+        $proyectistas = $database->getReference('proyectista')->getValue();
+
+        //dd($proyectistas); // Esto imprimirá el contenido de $proyectistas en la consola
+
+        return view('verproyectos', ['proyectistas' => $proyectistas]);
+    }
+
 }
