@@ -11,6 +11,7 @@ use Kreait\Firebase\Exception\FirebaseException;
 use Illuminate\Validation\ValidationException;
 use Auth;
 use App\Models\User;
+use Illuminate\Contracts\Container\Container;
 
 class LoginController extends Controller
 {
@@ -19,10 +20,10 @@ class LoginController extends Controller
     protected $auth;
     protected $redirectTo = RouteServiceProvider::HOME;
 
-    public function __construct(FirebaseAuth $auth)
+    public function __construct(Container $container)
     {
         $this->middleware('guest')->except('logout');
-        $this->auth = $auth;
+        $this->auth = $container->make(FirebaseAuth::class);
     }
 
     protected function login(Request $request)

@@ -1,39 +1,86 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Firebase\ContactController;
+interface RouteStrategy
+{
+    public function handleRequest();
+}
+
+class HomeRoute implements RouteStrategy
+{
+    public function handleRequest()
+    {
+        return view('home');
+    }
+}
+
+class AboutUsRoute implements RouteStrategy
+{
+    public function handleRequest()
+    {
+        return view('contribuidores.view');
+    }
+}
+
+class CreateProjectRoute implements RouteStrategy
+{
+    public function handleRequest()
+    {
+        return view('proyectista');
+    }
+}
+
+class ViewProjectsRoute implements RouteStrategy
+{
+    private $proyectistaController;
+
+    public function __construct(ProyectistaController $proyectistaController)
+    {
+        $this->proyectistaController = $proyectistaController;
+    }
+
+    public function handleRequest()
+    {
+        return $this->proyectistaController->mostrarProyectos();
+    }
+}
+class Router
+{
+    private $routeStrategy;
+
+    public function __construct(RouteStrategy $routeStrategy)
+    {
+        $this->routeStrategy = $routeStrategy;
+    }
+
+    public function executeStrategy()
+    {
+        return $this->routeStrategy->handleRequest();
+    }
+}
+
+
+
 use App\Http\Controllers\ProyectistaController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
-    return view('home');
+    $strategy = new Router(new HomeRoute());
+    return $strategy->executeStrategy();
 });
+
 Route::get('/quienessomos', function () {
-    return view('contribuidores/view');
+    $strategy = new Router(new AboutUsRoute());
+    return $strategy->executeStrategy();
 });
 
 Route::get('/creaunproyecto', function () {
-    return view('proyectista');
+    $strategy = new Router(new CreateProjectRoute());
+    return $strategy->executeStrategy();
 });
 
-Route::get('/verproyectos', [ProyectistaController::class, 'mostrarProyectos']);
+Route::get('/verproyectos', function () {
+    $strategy = new Router(new ViewProjectsRoute(app(ProyectistaController::class)));
+    return $strategy->executeStrategy();
+});
 
+// Otras rutas y configuraciones...
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('proyectista.store',[ContactController::class, 'create']);
-Route::post('proyectista.store',[ContactController::class, 'store']);
-
-Route::post('login/{provider}/callback', 'App\Http\Controllers\Auth\LoginController@handleCallback');
-//Route::post('/proyectista', [\App\Http\Controllers\Firebase\ContactController::class, 'store'])->name('proyectista.store');
