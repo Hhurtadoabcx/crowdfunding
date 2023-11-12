@@ -49,4 +49,22 @@ class ProyectistaController extends Controller
         return view('verproyectos', ['proyectistas' => $proyectistas]);
     }
 
+    public function pantallaBlanco($nombreCompleto)
+    {
+        $factory = (new Factory)
+            ->withDatabaseUri(env('FIREBASE_DATABASE_URL'));
+
+        $database = $factory->createDatabase();
+
+        $proyectista = $database->getReference('proyectista')
+            ->orderByChild('nombre_completo')
+            ->equalTo($nombreCompleto)
+            ->getValue();
+
+        return view('pantalla_blanco', ['proyectista' => reset($proyectista)]);
+    }
+
+
+
+
 }

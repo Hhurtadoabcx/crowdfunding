@@ -34,6 +34,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('proyectista.store',[ContactController::class, 'create']);
 Route::post('proyectista.store',[ContactController::class, 'store']);
+Route::get('/verproyectos/{nombre_completo}', [ProyectistaController::class, 'pantallaBlanco'])->name('verproyectos');
+
 
 Route::post('login/{provider}/callback', 'App\Http\Controllers\Auth\LoginController@handleCallback');
 //Route::post('/proyectista', [\App\Http\Controllers\Firebase\ContactController::class, 'store'])->name('proyectista.store');

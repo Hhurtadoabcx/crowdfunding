@@ -27,7 +27,7 @@
     </div>
     <div class="cards-container">
         @foreach($proyectistas as $proyectista)
-            <div class="card">
+            <a href="{{ route('verproyectos', ['nombre_completo' => $proyectista['nombre_completo']]) }}" class="card">
                 <div class="img-avatar">
                     <svg viewBox="0 0 100 100">
                     </svg>
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         @endforeach
 
     </div>
