@@ -12,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
 </head>
-
 <body>
 <div class="container">
     @include('layout.navbarProy')
@@ -27,7 +26,7 @@
     </div>
     <div class="cards-container">
         @foreach($proyectistas as $proyectista)
-            <div class="card">
+            <a href="/donar"><div class="card" id="cardClick">
                 <div class="img-avatar">
                     <svg viewBox="0 0 100 100">
                     </svg>
@@ -49,7 +48,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
         @endforeach
 
     </div>

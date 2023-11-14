@@ -26,6 +26,11 @@ Route::get('/creaunproyecto', function () {
     return view('proyectista');
 });
 
+
+Route::get('/donar', function () {
+    return view('donacion');
+});
+
 Route::get('/verproyectos', [ProyectistaController::class, 'mostrarProyectos']);
 
 
