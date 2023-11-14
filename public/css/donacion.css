@@ -1,0 +1,193 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #05332a;
+}
+
+a{
+    color: #05332a;
+    font-family: 'Work Sans', sans-serif;
+    text-decoration: none;
+}
+
+.nav-main{
+    font-family: 'Work Sans', sans-serif;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+}
+
+.nav-main ul{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 100px;
+}
+.nav-main ul li{
+    padding: 10px;
+    font-size: 20px;
+}
+
+.nav-main ul li a:hover{
+    color: #1f924f;
+    transition: 1s;
+}
+ul{
+    list-style: none;
+}
+.nav-main h1{
+    flex: 2;
+    text-align: center;
+    font-size: 40px;
+}
+
+
+
+.welcome-section h1{
+    text-align: center;
+    width: 100%;
+}
+.header-container{
+    color: #ffffff;
+    font-size: 46px;
+    width: 1000px;
+    text-align: center;
+}
+.text-section{
+    color: #f2e8cf!important;
+    font-size: 20px;
+    margin-top: 20px;
+}
+.boton-container{
+    margin-top: 35px;
+
+}
+.disclaimer-section{
+    display: flex;
+    background: #718096;
+    align-items: center;
+    justify-content: center;
+    height: 650px;
+    flex-direction: column;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)),url("/images/proyectista-arbol.jpg");
+    font-family: 'Work Sans', sans-serif;
+}
+.text-arboles h2{
+    padding-top: 10px ;
+    color: #FFFFFF;
+    font-family: 'Work Sans', sans-serif;
+}
+.arboles-disponibles{
+    height: 600px;
+    background: #05332a;
+    flex: 2;
+    width: 90%;
+    margin-top: 25px;
+}
+.seccion-arbol{
+    background: #05332a;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.arboles-container{
+    background-color: #f2e8cf;
+    width: 100%;
+    border-radius: 36px 36px 36px 36px;
+    height: 550px;
+    margin: auto;
+}
+
+.secciones{
+    display: flex;
+    font-family: 'Work Sans', sans-serif;
+    height: 600px;
+    justify-content: center;
+
+}
+.mision{
+
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+
+}
+.header-arboles{
+    color: #f2e8cf;
+    padding-top: 50px;
+    font-size: 35px;
+    font-weight: bold;
+    animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+}
+.nro-arboles{
+    color:#1f924f;
+    font-size: 70px;
+    animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+}
+.msg{
+    font-size: 40px;
+    font-weight: bold;
+    color: #f2e8cf;
+    padding-top: 20px;
+    animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+}
+.form-checkboxes{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+.form-control{
+    margin-top: 15px;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+.text-label{
+    display: inline;
+    margin-left: 20px;
+}
+.checkbox-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.label-cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+.numberstyle{
+    height: 40px;
+    padding: 0;
+
+    border: 0px;
+    text-align: center;
+    line-height: 40px;
+    outline: 0;
+    margin-right: 20px;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgba(#747474 ,0.25);
+}
+
+.recibo-cont{
+    display: flex;
+    align-items: center;
+}
+.recibo{
+    width: 100%;
+    border-radius: 36px 36px 36px 36px;
+    height: 550px;
+    background-color: #FFFFFF;
+}
