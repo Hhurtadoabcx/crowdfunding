@@ -76,6 +76,4 @@ class ProyectistaController extends Controller
         return view('donacion', ['arboles' => $arboles]);
     }
     */
-
-
 }

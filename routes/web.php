@@ -33,8 +33,6 @@ Route::get('/donar', function () {
     return view('donacion');
 });
 */
-
-//del mostrar arbol de la db
 Route::get('/donar', [ProyectistaController::class, 'mostrarArbol']);
 
 Route::get('/verproyectos', [ProyectistaController::class, 'mostrarProyectos']);

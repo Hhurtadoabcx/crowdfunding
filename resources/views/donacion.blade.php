@@ -10,7 +10,6 @@
     <!--FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 </head>
 
 <body>
@@ -24,7 +23,6 @@
         <div class="text-container">
             <p class="text-section">Tu contribucion es muy importante para este proyecto</p>
         </div>
-
     </div>
     <div class="secciones">
         <div class="seccion-arbol">
@@ -39,8 +37,8 @@
                                 @foreach($arboles as $index => $arbol)
                                     <div class="label-cont">
                                         <label class="form-control">
-                                            <h2 class="text-label">{{ $arbol ['tipo'] }}</h2>
-                                            <input id="arbol{{ $index }}" class="numberstyle" type="number" min="1" step="1" value="1">
+                                            <h2 class="text-label">{{ $arbol['tipo'] }}</h2>
+                                            <input id="arbol{{ $index }}" class="numberstyle" type="number" min="0" step="1" value="1" oninput="calcularTotal()">
                                         </label>
                                     </div>
                                 @endforeach
@@ -54,24 +52,24 @@
             <div class="recibo-cont">
                 <div class="recibo">
                     <h2>Total de la donación: </h2>
-                    <button id="calcularTotal">Calcular total</button>
                     <div id="totalDonacion"></div>
                 </div>
             </div>
-            <script>
-                document.getElementById('calcularTotal').addEventListener('click', function() {
-                    var total = 0;
-                    var arboles = <?php echo json_encode($arboles); ?>;
-                    arboles.forEach(function(arbol, index) {
-                        var cantidad = document.getElementById('arbol' + index).value;
-                        total += cantidad * arbol.precio;
-                    });
-                    document.getElementById('totalDonacion').innerText = 'Total: ' + total;
-                });
-            </script>
-
         </div>
     </div>
 </div>
+
+<script>
+    function calcularTotal() {
+        var total = 0;
+        var arboles = <?php echo json_encode($arboles); ?>;
+        arboles.forEach(function(arbol, index) {
+            var cantidad = document.getElementById('arbol' + index).value;
+            total += cantidad * arbol.precio;
+        });
+        document.getElementById('totalDonacion').innerText = 'Total: ' + total;
+    }
+</script>
+
 </body>
 </html>
