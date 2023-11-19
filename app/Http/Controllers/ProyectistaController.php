@@ -58,8 +58,8 @@ class ProyectistaController extends Controller
             ['tipo' => 'Pino', 'precio' => 15],
             ['tipo' => 'Cedro', 'precio' => 25],
         ];
-
-        return view('donacion', ['arboles' => $arboles]);
+    //para calcular el total de los arboles lo puse dentro de donaciones.js y le cambie aqui
+        return view('donacion', compact('arboles'));
     }
     //No funciona debido a que no estan los arboles en el realtime database
 
