@@ -27,7 +27,7 @@ class ContactController extends Controller
         $postData = [
             'checkbox' => $request->checkbox,
             'nombre_completo' => $request->nombre_completo,
-            'nombre_proyecto' => $request->nombre_completo,
+            'nombre_proyecto' => $request->nombre_proyecto,
             'ci' => $request->ci,
             'email' => $request->email,
             'tel' => $request->tel,

@@ -25,8 +25,10 @@
 
     </div>
     <div class="cards-container">
-        @foreach($proyectistas as $proyectista)
-            <a href="/donar"><div class="card" id="cardClick">
+        @foreach($proyectistas as $firebaseId => $proyecto)
+            <a href="{{ url('/donar', $firebaseId) }}">
+                <!-- Resto del código -->
+            <div class="card" id="cardClick">
                 <div class="img-avatar">
                     <svg viewBox="0 0 100 100">
                     </svg>
@@ -36,16 +38,15 @@
 
                     </div>
                     <div class="title-total">
-                        <div class="title">{{ $proyectista['nombre_completo'] }}</div>
-                        <h2>Crowdfunding</h2>
+                        <div class="title">{{ $proyecto['nombre_completo'] }}</div>
+                        <h2> {{$proyecto['nombre_proyecto']}}
+
+
+                        </h2>
 
                         <div class="desc">Morgan has collected ants since they were six years old and now has many dozen ants but none in their pants.</div>
 
-                        <div class="actions">
-                            <button><i class="far fa-heart"></i></button>
-                            <button><i class="far fa-envelope"></i></button>
-                            <button><i class="fas fa-user-friends"></i></button>
-                        </div>
+
                     </div>
                 </div>
             </div></a>

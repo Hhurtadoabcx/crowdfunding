@@ -40,38 +40,7 @@
                     @if(session('status'))
                         <h4>{{ session('status') }}</h4>
                     @endif
-                        <div class="checkbox-container">
-                            <div class="form-checkboxes">
-                                <label class="form-control">
-                                    <input type="checkbox" name="checkbox" />
-                                    Totaí
-                                </label>
-                                <label class="form-control">
-                                    <input type="checkbox" name="checkbox" />
-                                    Achachairu
-                                </label>
 
-                                <label class="form-control">
-                                    <input type="checkbox" name="checkbox"  />
-                                    Copaibó
-                                </label>
-                            </div>
-                            <div class="form-checkboxes">
-                                <label class="form-control">
-                                    <input type="checkbox" name="checkbox" />
-                                    Toborochi
-                                </label>
-                                <label class="form-control">
-                                    <input type="checkbox" name="checkbox"  />
-                                    Tajibo
-                                </label>
-                                <label class="form-control">
-                                    <input type="checkbox" name="checkbox"  />
-                                    Bibosi
-                                </label>
-
-                            </div>
-                        </div>
                         <fieldset class="fieldset-proyectista">
                             <legend class="legend-proyectista"> Datos personales</legend>
 

@@ -45,23 +45,40 @@ class ProyectistaController extends Controller
 
         $proyectistas = $database->getReference('proyectista')->getValue();
 
-        //dd($proyectistas); // Esto imprimirá el contenido de $proyectistas en la consola
-
         return view('verproyectos', ['proyectistas' => $proyectistas]);
     }
 
 
     //Temporal
-    public function mostrarArbol()
+    public function mostrarArbol($id)
     {
-        $arboles = [
-            ['tipo' => 'Roble', 'precio' => 20],
-            ['tipo' => 'Pino', 'precio' => 15],
-            ['tipo' => 'Cedro', 'precio' => 25],
-        ];
-    //para calcular el total de los arboles lo puse dentro de donaciones.js y le cambie aqui
-        return view('donacion', compact('arboles'));
+        $factory = (new Factory)
+            ->withDatabaseUri(env('FIREBASE_DATABASE_URL'));
+
+        $database = $factory->createDatabase();
+
+        // Accede a la colección 'proyectista' y obtén los datos del proyecto específico
+        $proyecto = $database->getReference('proyectista/' . $id)->getValue();
+
+        // Verifica si el proyecto con el ID especificado existe
+        if ($proyecto) {
+            // Accede al nombre del creador del proyecto
+            $nombreCreador = $proyecto['nombre_completo'];
+            $correocreador = $proyecto['email'];
+            $arboles = [
+                ['tipo' => 'Roble', 'precio' => 20],
+                ['tipo' => 'Pino', 'precio' => 15],
+                ['tipo' => 'Cedro', 'precio' => 25],
+            ];
+            return view('donacion', compact('arboles', 'nombreCreador', 'correocreador'));
+            // Resto de tu lógica...
+        } else {
+            // Maneja el caso en que el proyecto con el ID especificado no existe
+            abort(404);
+        }
     }
+
+
     //No funciona debido a que no estan los arboles en el realtime database
 
     /*

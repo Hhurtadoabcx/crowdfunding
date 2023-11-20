@@ -48,6 +48,10 @@
                                         </label>
                                     </div>
                                 @endforeach
+                                <div>
+                                    <h2>Creador del proyecto: {{ $nombreCreador }}</h2>
+                                    <h2>Correo del creador: {{$correocreador}}</h2>
+                                </div>
                             </div>
                         </div>
                     </form>
