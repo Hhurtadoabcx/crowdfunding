@@ -75,6 +75,13 @@
                             <legend class="legend-proyectista"> Datos personales</legend>
                             <div class="input-container">
                                 <div class="form-input">
+                                    <label class="label-input">Nombre del proyecto</label>
+                                    <input type="text" class="input" placeholder="Nombre del proyecto" name="proyecto">
+                                </div>
+                            </div>
+                            <div class="input-container">
+                                <div class="form-input">
+
                                     <label class="label-input">Nombre completo</label>
                                     <input type="text" class="input" placeholder="Nombre completo" name="nombre_completo">
                                 </div>

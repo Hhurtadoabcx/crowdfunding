@@ -14,7 +14,9 @@ class ProyectistaController extends Controller
         $nombreCompleto = $request->input('nombre_completo');
         $ci = $request->input('ci');
         $email = $request->input('email');
+        $coordenadas = $request->input('coordenadas');
         $telefono = $request->input('telefono');
+        $nombreProyecto = $request->input('proyecto');
         $direccion = $request->input('direccion');
         $metrosCuadrados = $request->input('metros_cuadrados');
 
@@ -27,11 +29,12 @@ class ProyectistaController extends Controller
             'nombre_completo' => $nombreCompleto,
             'ci' => $ci,
             'email' => $email,
+            'proyecto'=> $nombreProyecto,
+            'coordenadas' => $coordenadas,
             'telefono' => $telefono,
             'direccion' => $direccion,
             'metros_cuadrados' => $metrosCuadrados,
         ]);
-
         return redirect()->back()->with('success', 'Proyecto creado exitosamente!');
     }
 
