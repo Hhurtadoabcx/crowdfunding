@@ -1,10 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use Kreait\Firebase\Factory;
-use Kreait\Firebase\Database;
-
 use Illuminate\Http\Request;
+use Kreait\Firebase\Factory;
 
 class ProyectistaController extends Controller
 {
@@ -16,9 +14,9 @@ class ProyectistaController extends Controller
         $email = $request->input('email');
         $coordenadas = $request->input('coordenadas');
         $telefono = $request->input('telefono');
-        $nombreProyecto = $request->input('proyecto');
+        $nombreProyecto = $request->input('nombre_proyecto');
         $direccion = $request->input('direccion');
-        $metrosCuadrados = $request->input('metros_cuadrados');
+        $metrosCuadrado = $request->input('metros_cuadrado');
 
         // Configura el SDK de Firebase
         $factory = (new Factory)->withServiceAccount(base_path(env('FIREBASE_CREDENTIALS')));
@@ -29,13 +27,13 @@ class ProyectistaController extends Controller
             'nombre_completo' => $nombreCompleto,
             'ci' => $ci,
             'email' => $email,
-            'proyecto'=> $nombreProyecto,
+            'nombre_proyecto' => $nombreProyecto,
             'coordenadas' => $coordenadas,
             'telefono' => $telefono,
             'direccion' => $direccion,
-            'metros_cuadrados' => $metrosCuadrados,
+            'metros_cuadrado' => $metrosCuadrado,
         ]);
-        return redirect()->back()->with('success', 'Proyecto creado exitosamente!');
+        return redirect()->back()->with('status', 'Proyecto creado exitosamente!');
     }
 
     public function mostrarProyectos()

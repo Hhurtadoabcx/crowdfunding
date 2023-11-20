@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Firebase\ContactController;
 use App\Http\Controllers\ProyectistaController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,13 +26,6 @@ Route::get('/creaunproyecto', function () {
     return view('proyectista');
 });
 
-//del Arbol
-
-/*
-Route::get('/donar', function () {
-    return view('donacion');
-});
-*/
 Route::get('/donar', [ProyectistaController::class, 'mostrarArbol']);
 
 Route::get('/verproyectos', [ProyectistaController::class, 'mostrarProyectos']);

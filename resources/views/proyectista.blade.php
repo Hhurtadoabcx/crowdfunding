@@ -8,6 +8,7 @@
     <!--CSS -->
     <link rel="stylesheet" href="/css/proyectista.css">
     <!--FONTS -->
+    <script src="/js/maps.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-_omB7z7XO698LS-QdZfcovmFI4XLODM&callback=initMap" async defer></script>
@@ -15,7 +16,6 @@
 </head>
 
 <body>
-<script src="/js/maps.js"></script>
 <div class="container">
     @include('layout.navbarProy')
     <div class="disclaimer-section">
@@ -33,12 +33,13 @@
             <h2 class="text2">Siga los pasos descritos en el formulario a continuación para crear un proyecto de reforestacion. Al finalizar el formulario. los donantes podrán contribuir donando al proyecto.</h2>
         </div>
         <div class="form">
+
             <div class="form-cont">
                 <form action="{{ url('proyectista.store') }}" method="POST" onsubmit="return submitForm()">
-                    @if(session('status'))
-                        <h4> {{session('status')}}</h4>
-                    @endif
                     @csrf
+                    @if(session('status'))
+                        <h4>{{ session('status') }}</h4>
+                    @endif
                         <div class="checkbox-container">
                             <div class="form-checkboxes">
                                 <label class="form-control">
@@ -73,15 +74,9 @@
                         </div>
                         <fieldset class="fieldset-proyectista">
                             <legend class="legend-proyectista"> Datos personales</legend>
-                            <div class="input-container">
-                                <div class="form-input">
-                                    <label class="label-input">Nombre del proyecto</label>
-                                    <input type="text" class="input" placeholder="Nombre del proyecto" name="proyecto">
-                                </div>
-                            </div>
-                            <div class="input-container">
-                                <div class="form-input">
 
+                            <div class="input-container">
+                                <div class="form-input">
                                     <label class="label-input">Nombre completo</label>
                                     <input type="text" class="input" placeholder="Nombre completo" name="nombre_completo">
                                 </div>
@@ -116,6 +111,12 @@
                                     <div id="MapDiv" name="mapa">
 
                                     </div>
+                                </div>
+                            </div>
+                            <div class="input-container">
+                                <div class="form-input">
+                                    <label class="label-input">Nombre del proyecto</label>
+                                    <input type="text" class="input" placeholder="Nombre del proyecto" name="nombre_proyecto">
                                 </div>
                             </div>
                             <div class="group-input-container">

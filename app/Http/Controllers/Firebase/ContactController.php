@@ -27,12 +27,13 @@ class ContactController extends Controller
         $postData = [
             'checkbox' => $request->checkbox,
             'nombre_completo' => $request->nombre_completo,
+            'nombre_proyecto' => $request->nombre_completo,
             'ci' => $request->ci,
             'email' => $request->email,
             'tel' => $request->tel,
             'coordenadas' =>$request->coordenadas,
             'municipio' => $request->municipio,
-            'metros_cuadrados' => $request->metros_cuadrados,
+            'metros_cuadrado' => $request->metros_cuadrado,
             'datos_ref' => $request->datos_ref,
 
         ];
@@ -45,4 +46,5 @@ class ContactController extends Controller
 
         }
     }
+
 }
