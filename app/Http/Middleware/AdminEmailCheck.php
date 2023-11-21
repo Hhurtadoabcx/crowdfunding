@@ -15,6 +15,6 @@ class AdminEmailCheck
             return $next($request);
         }
 
-        return redirect('/home'); // O a la página que prefieras
+        return redirect('/home');
     }
 }
