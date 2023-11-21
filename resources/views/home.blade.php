@@ -25,9 +25,15 @@
             <p class="text-section">Apoya a los proyectos de reforestacion de Bolivia</p>
         </div>
         <div class="boton-container">
-            <a href="#" class="boton-donar">
-                Donar
-            </a>
+            @auth
+                <a href="/verproyectos" class="boton-donar">
+                    donar
+                </a>
+            @else
+                <a href="{{ route('login') }}" class="boton-donar">
+                    Donar
+                </a>
+            @endauth
         </div>
     </div>
     <!-- Mision y arboles plantados -->

@@ -58,30 +58,12 @@
                         {{ __('Login') }}
                       </button>
 
-                      @if (Route::has('password.request'))
-                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                          {{ __('Forgot Your Password?') }}
-                        </a>
-                      @endif
+
                     </div>
                   </div>
                 </form>
-<h5 class="text-center pt-2">OR</h5>
 
-                <div class="mb-0 text-center">
 
-                  <a class="btn mt-3 shadow-lg bg-white rounded"  onClick="socialSignin('google');">
-                    <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
-                    <span class="fa fa-google"></span> Sign in with Google
-                  </a>
-
-                  <br>
-
-                  <a class="btn my-3 bg-primary rounded text-light" onClick="socialSignin('facebook');">
-                    <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/600px-Facebook_f_logo_%282019%29.svg.png" />
-                     Sign in with Facebook
-                  </a>
-                </div>
 
                 <form id="social-login-form" action="" method="POST" style="display: none;">
                   {{ csrf_field() }}

@@ -32,6 +32,8 @@ Route::get('/verproyectos', [ProyectistaController::class, 'mostrarProyectos']);
 
 
 Auth::routes();
+Route::post('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('proyectista.store',[ContactController::class, 'create']);
