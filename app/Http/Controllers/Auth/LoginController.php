@@ -10,6 +10,7 @@ use Kreait\Firebase\Auth as FirebaseAuth;
 use Kreait\Firebase\Exception\FirebaseException;
 use Illuminate\Validation\ValidationException;
 use Auth;
+use Kreait\Firebase\Database;
 use App\Models\User;
 
 class LoginController extends Controller
@@ -30,6 +31,18 @@ class LoginController extends Controller
         try {
             $signInResult = $this->auth->signInWithEmailAndPassword($request['email'], $request['password']);
             $user = new User($signInResult->data());
+
+            // Obtiene el nombre del usuario desde el resultado de autenticación de Firebase
+            $userName = $signInResult->data()['displayName'];
+
+            // Crea la entrada en la colección "donadores" con el UID y el nombre del usuario
+            $database = app(Database::class);
+            $database->getReference('donadores')->getChild($user->localId)->set([
+                'id_user' => $user->localId,
+                'name' => $userName,
+                // Puedes agregar más campos según tus necesidades
+            ]);
+
             $result = Auth::login($user);
             return redirect($this->redirectPath());
         } catch (FirebaseException $e) {

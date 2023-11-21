@@ -79,19 +79,5 @@ class ProyectistaController extends Controller
     }
 
 
-    //No funciona debido a que no estan los arboles en el realtime database
 
-    /*
-    public function mostrarArbol()
-    {
-        $factory = (new Factory)
-            ->withDatabaseUri(env('FIREBASE_DATABASE_URL'));
-
-        $database = $factory->createDatabase();
-
-        $arboles = $database->getReference('arbol')->getValue();
-
-        return view('donacion', ['arboles' => $arboles]);
-    }
-    */
 }
