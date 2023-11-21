@@ -8,8 +8,15 @@
     <link rel="stylesheet" href="/css/contribuitors-views.css">
 </head>
 <body>
-@include('layout.navbarProy')
-
+@if(auth()->check())
+    @if(auth()->user()->email === 'admin@admin.com' || strpos(auth()->user()->email, '@admin') !== false)
+        @include('layout.navbarProy') <!-- Navbar para el administrador -->
+    @else
+        @include('layout.navbarUser') <!-- Navbar para otros usuarios autenticados -->
+    @endif
+@else
+    @include('layout.navbarUser') <!-- Navbar predeterminada para usuarios no autenticados -->
+@endif
 <div class="container">
     <div class="contribuidores" style="background-image: linear-gradient(to bottom, #1b7161, #1b7161);">
         <div class="container">

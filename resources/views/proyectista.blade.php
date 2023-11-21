@@ -17,7 +17,15 @@
 
 <body>
 <div class="container">
-    @include('layout.navbarProy')
+    @if(auth()->check())
+        @if(auth()->user()->email === 'admin@admin.com' || strpos(auth()->user()->email, '@admin') !== false)
+            @include('layout.navbarProy') <!-- Navbar para el administrador -->
+        @else
+            @include('layout.navbarUser') <!-- Navbar para otros usuarios autenticados -->
+        @endif
+    @else
+        @include('layout.navbarUser') <!-- Navbar predeterminada para usuarios no autenticados -->
+    @endif
     <div class="disclaimer-section">
         <div class="header-container">
             <h2>Gracias por Crear Proyectos con Nosotros! </h2>
