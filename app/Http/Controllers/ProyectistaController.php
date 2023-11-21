@@ -90,28 +90,46 @@ class ProyectistaController extends Controller
 
     public function confirmarDonacion(Request $request)
     {
-        // Aquí maneja la confirmación de la donación en el servidor
-        $idProyecto = $request->input('idProyecto');
+        try {
+            // Aquí maneja la confirmación de la donación en el servidor
+            $idProyecto = $request->input('idProyecto');
+            $totalDonacion = $request->input('totalDonacion');
 
-        // Realiza la lógica necesaria para actualizar o crear el índice "lotes" en Firebase
-        $database = app('firebase.database');
-        $proyectoRef = $database->getReference('proyectista/' . $idProyecto);
+            // Realiza la lógica necesaria para actualizar o crear el índice "lotes" en Firebase
+            $database = app('firebase.database');
+            $proyectoRef = $database->getReference('proyectista/' . $idProyecto);
 
-        // Obtén el valor actual del proyecto
-        $proyecto = $proyectoRef->getValue();
+            // Obtén el valor actual del proyecto
+            $proyecto = $proyectoRef->getValue();
 
-        if ($proyecto) {
-            // Proyecto existe, actualiza o crea el índice "lotes"
-            $proyectoRef->getChild('lotes')->update([
-                'totalDonacion' => $request->input('totalDonacion')
+            if ($proyecto) {
+                // Proyecto existe, actualiza o crea el índice "lotes"
+                $proyectoRef->getChild('lotes')->update([
+                    'totalDonacion' => $totalDonacion
+                ]);
+
+                // Retorna success como true si se actualizó exitosamente
+                return response()->json(['success' => true]);
+            } else {
+                // Maneja el caso en que el proyecto con el ID especificado no existe
+                abort(404);
+            }
+        } catch (\Exception $e) {
+            // Entra aquí si hay una excepción diferente a la de 404
+            // Puedes realizar una inserción forzada en la base de datos u otras acciones
+            // Ejemplo de inserción forzada (ajústalo según tus necesidades):
+            $database->getReference('proyectista/' . $idProyecto)->set([
+                'lotes' => [
+                    'totalDonacion' => $totalDonacion
+                ]
             ]);
-        } else {
-            // Maneja el caso en que el proyecto con el ID especificado no existe
-            abort(404);
-        }
 
-        return response()->json(['success' => true]);
+            // Retorna success como true indicando que la inserción forzada se realizó
+            return response()->json(['success' => true, 'forcedInsert' => true]);
+        }
     }
+
+
 
 
 

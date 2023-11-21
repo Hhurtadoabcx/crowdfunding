@@ -21,21 +21,22 @@ function mostrarVentanaEmergente() {
 
     detallesDonacion += "\nTotal a pagar: " + document.getElementById('totalDonacion').innerText;
 
-    var ventanaEmergente = window.open('', '_blank', 'width=600,height=400,scrollbars=yes,resizable=yes,center=yes');
-    ventanaEmergente.document.write('<html><head><title>Detalle de la Donación</title></head><body>');
-    ventanaEmergente.document.write('<pre>' + detallesDonacion + '</pre>');
-    ventanaEmergente.document.write('</body></html>');
-    ventanaEmergente.document.close();
+    // Actualiza el contenido del div con la clase "recibo"
+    var reciboDiv = document.getElementById('recibo');
+    reciboDiv.innerHTML = '<h2>Total de la donación: </h2><div>' + detallesDonacion + '</div>';
 
-    var confirmarBoton = ventanaEmergente.document.createElement("button");
-    confirmarBoton.innerHTML = "Confirmar";
+    // Agrega el botón de confirmación
+    var confirmarBoton = document.createElement("button");
+    confirmarBoton.innerHTML = "Confirmar Donación";
     confirmarBoton.onclick = function() {
         confirmarDonacion();
-        ventanaEmergente.close();
+        reciboDiv.innerHTML += '<p>Donación confirmada</p>';  // Puedes personalizar este mensaje
     };
 
-    ventanaEmergente.document.body.appendChild(confirmarBoton);
+    reciboDiv.appendChild(confirmarBoton);
 }
+
+
 
 function confirmarDonacion() {
     // Aquí puedes realizar una llamada AJAX al servidor para confirmar la donación
@@ -58,7 +59,6 @@ function confirmarDonacion() {
             console.error('Error:', error);
         });
 }
-
 
 
 // Añade la siguiente línea para ejecutar calcularTotal al cargar el documento

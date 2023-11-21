@@ -61,7 +61,7 @@
         </div>
         <div class="mision">
             <div class="recibo-cont">
-                <div class="recibo">
+                <div class="recibo" id="recibo">
                     <h2>Total de la donación: </h2>
                     <div id="totalDonacion"></div>
                     <button onclick="mostrarVentanaEmergente()" class="boton-confirmar">Confirmar Donación</button>
