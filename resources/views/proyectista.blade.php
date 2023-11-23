@@ -55,23 +55,26 @@
                             <div class="input-container">
                                 <div class="form-input">
                                     <label class="label-input">Nombre completo</label>
-                                    <input type="text" class="input" placeholder="Nombre completo" name="nombre_completo">
+                                    <input type="text" class="input" placeholder="Nombre completo" name="nombre_completo" required>
                                 </div>
                             </div>
+                            @error('nombre_completo')
+                            <p class="error-message">{{ $message }}</p>
+                            @enderror
                             <div class="group-input-container">
                                 <div class="form-input">
                                     <label class="label-input">C.I</label>
-                                    <input type="number" class="input" placeholder="C.I" name="ci">
+                                    <input type="number" class="input" placeholder="C.I" name="ci"required>
                                 </div>
                                 <div class="form-input">
                                     <label class="label-input">Correo electronico</label>
-                                    <input type="email" class="input" placeholder="Correo electrónico" name="email">
+                                    <input type="email" class="input" placeholder="Correo electrónico" name="email"required>
                                 </div>
                             </div>
                             <div class="input-container">
                                 <div class="form-input">
                                     <label class="label-input">Número de teléfono</label>
-                                    <input type="text" class="input" placeholder="Número de telf." name="tel">
+                                    <input type="text" class="input" placeholder="Número de telf." name="tel"required>
                                 </div>
                             </div>
                         </fieldset>
@@ -82,9 +85,9 @@
                             <div class="input-container">
                                 <div class="form-input">
                                     <label class="label-input">Dirección del terreno</label>
-                                    <input  id="latitud" name="latitud" placeholder="latitud" type="hidden">
-                                    <input  id="longitud" name="longitud" placeholder="longitud" type="hidden">
-                                    <input  id="coordenadas" name="coordenadas" placeholder="coordenadas" type="hidden">
+                                    <input  id="latitud" name="latitud" placeholder="latitud" type="hidden"required>
+                                    <input  id="longitud" name="longitud" placeholder="longitud" type="hidden"required>
+                                    <input  id="coordenadas" name="coordenadas" placeholder="coordenadas" type="hidden"required>
                                     <div id="MapDiv" name="mapa">
 
                                     </div>
@@ -93,23 +96,23 @@
                             <div class="input-container">
                                 <div class="form-input">
                                     <label class="label-input">Nombre del proyecto</label>
-                                    <input type="text" class="input" placeholder="Nombre del proyecto" name="nombre_proyecto">
+                                    <input type="text" class="input" placeholder="Nombre del proyecto" name="nombre_proyecto"required>
                                 </div>
                             </div>
                             <div class="group-input-container">
                                 <div class="form-input">
                                     <label class="label-input">Municipio</label>
-                                    <input type="text" class="input" placeholder="Municipio" name="municipio">
+                                    <input type="text" class="input" placeholder="Municipio" name="municipio"required>
                                 </div>
                                 <div class="form-input">
                                     <label class="label-input">Metros cuadrados</label>
-                                    <input type="number" class="input" placeholder="Metros cuadrados" name="metros_cuadrado">
+                                    <input type="number" class="input" placeholder="Metros cuadrados" name="metros_cuadrado"required>
                                 </div>
                             </div>
                             <div class="input-container">
                                 <div class="form-input">
                                     <label class="label-input">Datos de referencia</label>
-                                    <input type="text" class="input" placeholder="Datos de referencia" name="datos_ref">
+                                    <input type="text" class="input" placeholder="Datos de referencia" name="datos_ref"required>
                                 </div>
                             </div>
                         </fieldset>
@@ -122,6 +125,4 @@
     </div>
 </div>
 </body>
-<?php
 
-?>

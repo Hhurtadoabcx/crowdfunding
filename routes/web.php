@@ -22,8 +22,10 @@ Route::get('/quienessomos', function () {
     return view('contribuidores/view');
 });
 
-Route::get('/creaunproyecto',)
-    ->middleware(['auth', 'admin.email.check']);
+Route::get('/creaunproyecto', function () {
+    return view('proyectista');
+})->middleware(['auth', 'admin.email.check']);
+
 
 Route::get('/donar/{id}', [ProyectistaController::class, 'mostrarArbol']);
 
