@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Kreait\Firebase\Factory;
+use Illuminate\Support\Facades\Auth;
+
 
 class ProyectistaController extends Controller
 {
@@ -46,6 +48,23 @@ class ProyectistaController extends Controller
         $proyectistas = $database->getReference('proyectista')->getValue();
 
         return view('verproyectos', ['proyectistas' => $proyectistas]);
+    }
+
+    public function gestionarProyectos(){
+        $factory = (new Factory)
+            ->withDatabaseUri(env('FIREBASE_DATABASE_URL'));
+
+        $database = $factory->createDatabase();
+
+        $uid = Auth::user()->localId;
+
+        $proyectos = $database->getReference('proyectista')->orderByChild('uid')->equalTo($uid)->getValue();
+
+        if ($proyectos) {
+            return view('gestionar', ['proyectos' => $proyectos]);
+        } else {
+            return view('gestionar', ['mensaje' => 'No tienes proyectos. ¡Crea uno ahora!']);
+        }
     }
 
 

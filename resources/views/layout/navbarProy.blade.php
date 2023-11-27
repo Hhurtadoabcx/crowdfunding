@@ -8,7 +8,7 @@
 <ul class="nav-links">
     <li class="titulo">CrowdFunding</li>
     <li class="upward"><a href="/verproyectos">Ver Proyectos</a></li>
-    <li class="upward"><a href="#">Gestionar Proyecto</a></li>
+    <li class="upward"><a href="/gestionar">Gestionar Proyecto</a></li>
     <li class="upward"><a href="/creaunproyecto">Registrar Proyecto</a></li>
     <li class="upward"><a href="/quienessomos">Quienes Somos</a></li>
     <li class="upward"><a href="#">Mision</a></li>

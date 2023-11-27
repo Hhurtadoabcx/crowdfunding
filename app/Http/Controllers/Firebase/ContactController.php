@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Firebase;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Kreait\Firebase\Database;
+use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
@@ -24,7 +25,10 @@ class ContactController extends Controller
     }
 
     public function store(Request $request){
+        $uid = Auth::user()->localId;
+
         $postData = [
+            'uid' => $uid,
             'checkbox' => $request->checkbox,
             'nombre_completo' => $request->nombre_completo,
             'nombre_proyecto' => $request->nombre_proyecto,
