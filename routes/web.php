@@ -34,7 +34,8 @@ Route::get('/donar/{id}', [ProyectistaController::class, 'mostrarArbol']);
 Route::get('/verproyectos', [ProyectistaController::class, 'mostrarProyectos']);
 
 
-Route::get('/gestionar', [ProyectistaController::class, 'gestionarProyectos']);
+Route::get('/gestionar', [ProyectistaController::class, 'gestionarProyectos'])
+    ->middleware(['auth', 'admin.email.check']);
 
 
 
