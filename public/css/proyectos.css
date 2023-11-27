@@ -182,3 +182,13 @@ button {
         transform: rotate(22deg)
     }
 }
+
+.no-proyectos-message {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.no-proyectos-message p {
+    font-size: 50px;
+    color: #ffffff;
+}

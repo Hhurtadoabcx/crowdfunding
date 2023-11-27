@@ -55,12 +55,13 @@
                     </div>
                 </a>
             @endforeach
+                @else
+                    <div class="no-proyectos-message">
+                        <p>{{ isset($mensaje) ? $mensaje : 'No tienes proyectos. ¡Crea uno ahora!' }}</p>
+                    </div>
+                @endif
         </div>
-    @else
-        <div class="no-proyectos-message">
-            <p>{{ isset($mensaje) ? $mensaje : 'No tienes proyectos. ¡Crea uno ahora!' }}</p>
-        </div>
-    @endif
+
 </div>
 </body>
 
