@@ -41,7 +41,7 @@
     <div class="secciones">
         <div class="seccion-arbol">
             <div class="text-arboles">
-                <h2>Zonas disponibles</h2>
+                <h2>Arboles disponibles</h2>
             </div>
             <div class="arboles-disponibles">
                 <div class="arboles-container">
@@ -56,22 +56,28 @@
                                         </label>
                                     </div>
                                 @endforeach
-                                <div>
-                                    <h2>Creador del proyecto: {{ $nombreCreador }}</h2>
-                                    <h2>Correo del creador: {{$correocreador}}</h2>
-                                </div>
+
                             </div>
                         </div>
                     </form>
+                    <div class="cont-info">
+                        <h2>Creador del proyecto: {{ $nombreCreador }}</h2>
+                        <h2>Correo del creador: {{$correocreador}}</h2>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="mision">
+            <div class="text-recibo">
+            <h2>Total donado</h2>
+            </div>
             <div class="recibo-cont">
                 <div class="recibo">
-                    <h2>Total de la donación: </h2>
-                    <div id="totalDonacion"></div>
-                    <button onclick="mostrarVentanaEmergente()" class="boton-confirmar">Confirmar Donación</button>
+                    <div class="recibo-box">
+                        <h2>Total de la donación: </h2>
+                        <div id="totalDonacion"></div>
+                        <button onclick="mostrarVentanaEmergente()" class="boton-confirmar">Confirmar Donación</button>
+                    </div>
                 </div>
             </div>
         </div>

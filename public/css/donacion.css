@@ -104,8 +104,19 @@ ul{
     border-radius: 36px 36px 36px 36px;
     height: 550px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
 }
-
+.cont-info{
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    justify-content: end;
+    align-items: center;
+}
+.cont-info h2{
+    margin-bottom: 5px;
+}
 .secciones{
     display: flex;
     font-family: 'Work Sans', sans-serif;
@@ -114,7 +125,8 @@ ul{
 
 }
 .mision{
-
+    display: flex;
+    flex-direction: column;
     flex: 1;
     text-align: center;
     justify-content: center;
@@ -180,6 +192,10 @@ ul{
     overflow: hidden;
     box-shadow: 0 3px 6px rgba(#747474 ,0.25);
 }
+.text-recibo h2{
+    color: #FFFFFF;
+    padding-top: 25px;
+}
 
 .recibo-cont{
     display: flex;
@@ -190,6 +206,19 @@ ul{
     border-radius: 36px 36px 36px 36px;
     height: 550px;
     background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.recibo-box{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-around;
+    align-items: center;
 }
 
 
@@ -199,11 +228,10 @@ ul{
     text-align: center;
     background-color: #155831;
     font-size: 25px;
-    width: flex;
-    height: flex;
+
     display: inline-block;
     color: #f2e8cf;
-    letter-spacing: 0px;
+    letter-spacing: 0;
 
 }
 .boton-confirmar:hover{
