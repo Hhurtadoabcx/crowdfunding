@@ -37,6 +37,12 @@ Route::get('/verproyectos', [ProyectistaController::class, 'mostrarProyectos']);
 Route::get('/gestionar', [ProyectistaController::class, 'gestionarProyectos'])
     ->middleware(['auth', 'admin.email.check']);
 
+Route::get('/editar/{proyectoId}', [ProyectistaController::class, 'editarProyecto'])
+    ->middleware(['auth', 'admin.email.check']);
+
+Route::post('/editar/{proyectoId}', [ProyectistaController::class, 'editarProyecto'])
+    ->middleware(['auth', 'admin.email.check']);
+
 
 
 Auth::routes();

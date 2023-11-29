@@ -6,6 +6,7 @@ use Kreait\Firebase\Factory;
 use Illuminate\Support\Facades\Auth;
 
 
+
 class ProyectistaController extends Controller
 {
     public function store(Request $request)
@@ -50,7 +51,8 @@ class ProyectistaController extends Controller
         return view('verproyectos', ['proyectistas' => $proyectistas]);
     }
 
-    public function gestionarProyectos(){
+    public function gestionarProyectos()
+    {
         $factory = (new Factory)
             ->withDatabaseUri(env('FIREBASE_DATABASE_URL'));
 
@@ -67,6 +69,46 @@ class ProyectistaController extends Controller
         }
     }
 
+    public function editarProyecto($proyectoId, Request $request)
+    {
+        $factory = (new Factory)
+            ->withDatabaseUri(env('FIREBASE_DATABASE_URL'));
+
+        $database = $factory->createDatabase();
+
+        $proyecto = $database->getReference('proyectista/' . $proyectoId)->getValue();
+
+        if ($proyecto) {
+            if ($request->isMethod('post')) {
+                $datosRef = $request->input('datos_ref');
+                $email = $request->input('email');
+                $metrosCuadrado = $request->input('metros_cuadrado');
+                $nombreCompleto = $request->input('nombre_completo');
+                $nombreProyecto = $request->input('nombre_proyecto');
+                $tel = $request->input('tel');
+                $coordenadas = $request->input('coordenadas');
+
+                $database->getReference('proyectista/' . $proyectoId)->update([
+                    'datos_ref' => $datosRef,
+                    'email' => $email,
+                    'metros_cuadrado' => $metrosCuadrado,
+                    'nombre_completo' => $nombreCompleto,
+                    'nombre_proyecto' => $nombreProyecto,
+                    'tel' => $tel,
+                    'coordenadas' => $coordenadas,
+                ]);
+
+                return redirect('/gestionar')->with('status', 'Cambios guardados exitosamente!');
+            } else {
+                return view('proyectista.editar', ['proyecto' => $proyecto, 'proyectoId' => $proyectoId]);
+            }
+        } else {
+            abort(404);
+        }
+    }
+
+
+
 
     //Temporal
     public function mostrarArbol($id)
@@ -76,12 +118,9 @@ class ProyectistaController extends Controller
 
         $database = $factory->createDatabase();
 
-        // Accede a la colección 'proyectista' y obtén los datos del proyecto específico
         $proyecto = $database->getReference('proyectista/' . $id)->getValue();
 
-        // Verifica si el proyecto con el ID especificado existe
         if ($proyecto) {
-            // Accede al nombre del creador del proyecto
             $nombreCreador = $proyecto['nombre_completo'];
             $correocreador = $proyecto['email'];
             $arboles = [
@@ -90,9 +129,7 @@ class ProyectistaController extends Controller
                 ['tipo' => 'Cedro', 'precio' => 25],
             ];
             return view('donacion', compact('arboles', 'nombreCreador', 'correocreador'));
-            // Resto de tu lógica...
         } else {
-            // Maneja el caso en que el proyecto con el ID especificado no existe
             abort(404);
         }
     }

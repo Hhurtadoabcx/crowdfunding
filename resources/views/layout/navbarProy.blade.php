@@ -3,6 +3,13 @@
 <head>
     <link rel="stylesheet" href="/css/styleNavbar.css">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <script>
+        function confirmLogout() {
+            if (confirm('¿Estás seguro de que deseas desconectar tu cuenta?')) {
+                document.getElementById('logout-form').submit();
+            }
+        }
+    </script>
 </head>
 <body>
 <ul class="nav-links">
@@ -31,12 +38,6 @@
     @csrf
 </form>
 
-<script>
-    function confirmLogout() {
-        if (confirm('¿Estás seguro de que deseas desconectar tu cuenta?')) {
-            document.getElementById('logout-form').submit();
-        }
-    }
-</script>
+
 </body>
 </html>

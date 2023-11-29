@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Crowdfunding</title>
@@ -50,6 +53,10 @@
                                 <div class="title">{{ $proyecto['nombre_completo'] }}</div>
                                 <h2>{{ $proyecto['nombre_proyecto'] }}</h2>
                                 <div class="desc">Morgan has collected ants since they were six years old and now has many dozen ants but none in their pants.</div>
+                                <a href="{{ url('/editar', $firebaseId) }}">
+
+                                    <button>Editar</button>
+                                </a>
                             </div>
                         </div>
                     </div>
