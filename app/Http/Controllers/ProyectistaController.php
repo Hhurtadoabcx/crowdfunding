@@ -128,12 +128,65 @@ class ProyectistaController extends Controller
                 ['tipo' => 'Pino', 'precio' => 15],
                 ['tipo' => 'Cedro', 'precio' => 25],
             ];
-            return view('donacion', compact('arboles', 'nombreCreador', 'correocreador'));
+
+            // Definir $proyectoId aquí antes de pasarlo a la vista
+            $proyectoId = $id;
+
+            return view('donacion', compact('arboles', 'nombreCreador', 'correocreador', 'proyectoId'));
         } else {
             abort(404);
         }
     }
+    public function guardarDonacion(Request $request, $proyectoId)
+    {
+        $userId = Auth::user()->localId;
+        $userName = Auth::user()->displayName;
 
+        // Obtén los valores de los árboles seleccionados del formulario
+        $arbolesSeleccionados = $request->input('arboles');
+
+        // Llamar a la función para guardar en Firebase
+        $this->guardarDonacionEnFirebase($userId, $userName, $proyectoId, $arbolesSeleccionados);
+
+        return redirect()->route('mostrarArbol', ['id' => $proyectoId])->with('donacionExitosa', true);
+    }
+
+    private function guardarDonacionEnFirebase($userId, $userName, $proyectoId, $arbolesSeleccionados)
+    {
+        $factory = (new Factory)->withDatabaseUri(env('FIREBASE_DATABASE_URL'));
+        $database = $factory->createDatabase();
+
+        // Inicializar cantidades en caso de que algunos árboles no se seleccionen
+        $cedro = 0;
+        $roble = 0;
+        $pino = 0;
+
+        // Verificar si se seleccionó algún árbol y asignar la cantidad correspondiente
+        foreach ($arbolesSeleccionados as $arbol) {
+            switch ($arbol['tipo']) {
+                case 'Cedro':
+                    $cedro = $arbol['cantidad'];
+                    break;
+                case 'Roble':
+                    $roble = $arbol['cantidad'];
+                    break;
+                case 'Pino':
+                    $pino = $arbol['cantidad'];
+                    break;
+                // Agrega más casos según sea necesario para otros tipos de árboles
+            }
+        }
+
+        // Guardar la donación en la colección "donacion"
+        $database->getReference('donacion')->push([
+            'id_user' => $userId,
+            'name' => $userName,
+            'id_proyecto' => $proyectoId,
+            'cedro' => $cedro,
+            'roble' => $roble,
+            'pino' => $pino,
+        ]);
+    }
 
 
 }

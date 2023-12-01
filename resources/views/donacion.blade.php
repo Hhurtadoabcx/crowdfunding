@@ -14,8 +14,6 @@
     <script>
         var arboles = @json($arboles);
     </script>
-
-
 </head>
 
 <body>
@@ -41,47 +39,55 @@
     <div class="secciones">
         <div class="seccion-arbol">
             <div class="text-arboles">
-                <h2>Zonas disponibles</h2>
+                <h2>Árboles disponibles</h2>
             </div>
             <div class="arboles-disponibles">
                 <div class="arboles-container">
-                    <form>
-                        <div class="checkbox-container">
-                            <div class="form-checkboxes">
-                                @foreach($arboles as $index => $arbol)
-                                    <div class="label-cont">
-                                        <label class="form-control">
-                                            <h2 class="text-label">{{ $arbol['tipo'] }}</h2>
-                                            <input id="arbol{{ $index }}" class="numberstyle" type="number" min="0" step="1" value="0" oninput="calcularTotal()">
-                                        </label>
-                                    </div>
-                                @endforeach
-                                <div>
-                                    <h2>Creador del proyecto: {{ $nombreCreador }}</h2>
-                                    <h2>Correo del creador: {{$correocreador}}</h2>
+                    <form method="post" action="{{ route('guardarDonacion', ['proyectoId' => $proyectoId]) }}">
+                        @csrf
+                        <div class="form-checkboxes">
+                            @foreach($arboles as $index => $arbol)
+                                <div class="label-cont">
+                                    <label class="form-control">
+                                        <h2 class="text-label">{{ $arbol['tipo'] }}</h2>
+                                        <input type="hidden" name="arboles[{{ $index }}][tipo]" value="{{ $arbol['tipo'] }}">
+                                        <input type="hidden" name="arboles[{{ $index }}][precio]" value="{{ $arbol['precio'] }}">
+                                        <input name="arboles[{{ $index }}][cantidad]" id="arbol{{ $index }}" class="numberstyle" type="number" min="0" step="1" value="0" oninput="calcularTotal()">
+                                    </label>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
+
+                        <button type="submit" class="boton-confirmar">Confirmar Donación</button>
                     </form>
+                    <div class="cont-info">
+                        <h2>Creador del proyecto: {{ $nombreCreador }}</h2>
+                        <h2>Correo del creador: {{$correocreador}}</h2>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="mision">
+            <div class="text-recibo">
+                <h2>Más Detalles</h2>
+            </div>
             <div class="recibo-cont">
+                @if(session('donacionExitosa'))
+                    <div class="alert alert-success" role="alert">
+                        Donación realizada con éxito.
+                    </div>
+                @endif
                 <div class="recibo">
-                    <h2>Total de la donación: </h2>
-                    <div id="totalDonacion"></div>
-                    <button onclick="mostrarVentanaEmergente()" class="boton-confirmar">Confirmar Donación</button>
+                    <div class="recibo-box">
+                        <h2>Árboles Seleccionados: </h2>
+                        <div id="arbolesSeleccionados"></div>
+                        <h2>Total de la donación: </h2>
+                        <div id="totalDonacion"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<!--
-    aqui iba un scrip de js que mejor lo separe en donaciones.js
-
--->
-
 </body>
 </html>
