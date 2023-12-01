@@ -1,0 +1,124 @@
+.form-cont{
+    margin: auto;
+    width: 60%;
+}
+
+.form-cont{
+    font-size: 14px;
+}
+
+
+.form-header{
+    color: #05332a!important;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bolder;
+    margin-top: 50px;
+}
+
+.form-p{
+    text-align: center;
+    margin-top: 14px;
+}
+.form-checkboxes{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+.form-control{
+    margin-top: 15px;
+    font-size: 24px;
+}
+
+.checkbox-container{
+    display: flex;
+    justify-content: space-between;
+}
+.legend-proyectista{
+    margin-top: 13px;
+    border: 0;
+    outline: 0;
+    color: #05332A;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    font-size: 1.30em;
+    font-weight: 700;
+}
+.fieldset-proyectista{
+    border: 0;
+    margin-top: 15px;
+}
+
+.form-input{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input{
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    padding: 0.5em;
+}
+.label-input{
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.input-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.group-input-container{
+    display: flex;
+
+}
+.group-input-container .form-input .input{
+    width: 98%;
+
+}
+.fieldset-proyecto{
+    margin-top: 15px;
+    border: 0;
+}
+
+.legend-proyecto{
+    margin-top: 13px;
+    border: 0;
+    outline: 0;
+    color: #05332A;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    font-size: 1.30em;
+    font-weight: 700;
+}
+
+.btn-submit{
+    background-color: #1F924F;
+    padding: 20px 30px;
+    border-radius: 36px;
+    border: 1px solid #ccc;
+    color: #F2E8CF;
+    font-size: 18px;
+    transition: transform .2s;
+}
+.submit-container{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+;
+}
+.btn-submit:hover{
+    background-color: #05332A;
+    padding: 20px 30px;
+    border-radius: 36px;
+    border-color: #05332A;
+    color: #ffffff;
+    transform: scale(1.1);
+    cursor:pointer;
+}
+#MapDiv {
+    height: 400px;
+    width: 100%;
+}

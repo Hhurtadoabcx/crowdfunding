@@ -54,6 +54,7 @@
 
                             <div class="input-container">
                                 <div class="form-input">
+
                                     <label class="label-input">Nombre completo</label>
                                     <input type="text" class="input" placeholder="Nombre completo" name="nombre_completo" required>
                                 </div>
