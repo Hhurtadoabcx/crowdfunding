@@ -152,7 +152,6 @@ class ProyectistaController extends Controller
             $cantidadNueva = $cantidadExistente + intval($arbol['cantidad']);
             $actualizaciones[$tipoArbol] = $cantidadNueva;
         }
-        $proyectoRef->update($actualizaciones);
         $donacionExistente = $database->getReference('donacion')
             ->orderByChild('id_user_id_proyecto')
             ->equalTo($userId . '_' . $proyectoId)
