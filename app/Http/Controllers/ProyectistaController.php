@@ -143,66 +143,43 @@ class ProyectistaController extends Controller
     {
         $factory = (new Factory)->withDatabaseUri(env('FIREBASE_DATABASE_URL'));
         $database = $factory->createDatabase();
-
-        // Obtener las cantidades actuales de árboles del proyecto
         $proyectoRef = $database->getReference('proyectista/' . $proyectoId);
         $proyecto = $proyectoRef->getValue();
-
-        // Crear un array para almacenar las actualizaciones de cada tipo de árbol
         $actualizaciones = [];
-
         foreach ($arbolesSeleccionados as $arbol) {
             $tipoArbol = strtolower($arbol['tipo']);  // Convertir el tipo de árbol a minúsculas para evitar problemas de mayúsculas y minúsculas
             $cantidadExistente = isset($proyecto[$tipoArbol]) ? $proyecto[$tipoArbol] : 0;
             $cantidadNueva = $cantidadExistente + intval($arbol['cantidad']);
-
-            // Almacenar la actualización del tipo de árbol en el array
             $actualizaciones[$tipoArbol] = $cantidadNueva;
         }
-
-        // Actualizar la colección 'proyectista' con las nuevas cantidades
-        $proyectoRef->update($actualizaciones);
-
-        // Verificar si existe una donación previa con el mismo 'id_user' y 'name'
         $donacionExistente = $database->getReference('donacion')
-            ->orderByChild('id_user_name')
-            ->equalTo($userId . '_' . $userName)
+            ->orderByChild('id_user_id_proyecto')
+            ->equalTo($userId . '_' . $proyectoId)
             ->getValue();
-
         if ($donacionExistente) {
-            // Si ya existe una donación para ese usuario, actualizarla en lugar de crear una nueva
             $donacionId = key($donacionExistente);
             $database->getReference('donacion/' . $donacionId)->update($actualizaciones);
         } else {
-            // Si no existe una donación para ese usuario, usar el UID existente o crear uno nuevo
             $existingUid = $database->getReference('donacion_uids')
-                ->orderByChild('id_user_name')
-                ->equalTo($userId . '_' . $userName)
+                ->orderByChild('id_user_id_proyecto')
+                ->equalTo($userId . '_' . $proyectoId)
                 ->getValue();
-
             if ($existingUid) {
                 $uid = current($existingUid)['uid'];
             } else {
                 $uid = $database->getReference('donacion_uids')->push()->getKey();
                 $database->getReference('donacion_uids/' . $uid)->set([
-                    'id_user_name' => $userId . '_' . $userName,
+                    'id_user_id_proyecto' => $userId . '_' . $proyectoId,
                     'uid' => $uid,
                 ]);
             }
-
-            // Crear un nuevo registro en la colección 'donacion'
             $data = [
                 'id_user' => $userId,
                 'name' => $userName,
                 'id_proyecto' => $proyectoId,
             ];
-
-            // Agregar las cantidades de árboles al array de datos
             $data += $actualizaciones;
-
             $database->getReference('donacion/' . $uid)->set($data);
         }
     }
-
-
 }
