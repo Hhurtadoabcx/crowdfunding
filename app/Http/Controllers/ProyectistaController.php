@@ -145,17 +145,29 @@ class ProyectistaController extends Controller
         $database = $factory->createDatabase();
         $proyectoRef = $database->getReference('proyectista/' . $proyectoId);
         $proyecto = $proyectoRef->getValue();
+        $nombreProyecto = $proyecto['nombre_proyecto'];
+
         $actualizaciones = [];
         foreach ($arbolesSeleccionados as $arbol) {
-            $tipoArbol = strtolower($arbol['tipo']);  // Convertir el tipo de árbol a minúsculas para evitar problemas de mayúsculas y minúsculas
+            $tipoArbol = strtolower($arbol['tipo']);
             $cantidadExistente = isset($proyecto[$tipoArbol]) ? $proyecto[$tipoArbol] : 0;
             $cantidadNueva = $cantidadExistente + intval($arbol['cantidad']);
             $actualizaciones[$tipoArbol] = $cantidadNueva;
         }
+
+        $data = [
+            'id_user' => $userId,
+            'name' => $userName,
+            'id_proyecto' => $proyectoId,
+            'nombre_proyecto' => $nombreProyecto, // Nuevo campo 'nombre_proyecto'
+        ];
+        $data += $actualizaciones;
+
         $donacionExistente = $database->getReference('donacion')
             ->orderByChild('id_user_id_proyecto')
             ->equalTo($userId . '_' . $proyectoId)
             ->getValue();
+
         if ($donacionExistente) {
             $donacionId = key($donacionExistente);
             $database->getReference('donacion/' . $donacionId)->update($actualizaciones);
@@ -164,6 +176,7 @@ class ProyectistaController extends Controller
                 ->orderByChild('id_user_id_proyecto')
                 ->equalTo($userId . '_' . $proyectoId)
                 ->getValue();
+
             if ($existingUid) {
                 $uid = current($existingUid)['uid'];
             } else {
@@ -173,13 +186,9 @@ class ProyectistaController extends Controller
                     'uid' => $uid,
                 ]);
             }
-            $data = [
-                'id_user' => $userId,
-                'name' => $userName,
-                'id_proyecto' => $proyectoId,
-            ];
-            $data += $actualizaciones;
+
             $database->getReference('donacion/' . $uid)->set($data);
         }
     }
+
 }
