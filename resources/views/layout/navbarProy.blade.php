@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="/css/styleNavbar.css">
-
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="pragma" content="no-cache">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
     <script>
         function confirmLogout() {
