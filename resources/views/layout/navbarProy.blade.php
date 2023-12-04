@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="/css/styleNavbar.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
     <script>
         function confirmLogout() {
@@ -21,7 +22,7 @@
     <li class="upward"><a href="#">Mision</a></li>
     <li class="upward">
         @auth
-            <a href="#">Mi Bosque Personal</a>
+            <a href="{{ route('mi_bosque_personal') }}">Mi Bosque Personal</a>
         @else
             <a href="{{ route('login') }}">Mi Bosque Personal</a>
         @endauth

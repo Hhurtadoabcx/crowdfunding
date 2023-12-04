@@ -66,4 +66,3 @@ Route::post('proyectista.store',[ContactController::class, 'store']);
 
 
 Route::post('login/{provider}/callback', 'App\Http\Controllers\Auth\LoginController@handleCallback');
-//Route::post('/proyectista', [\App\Http\Controllers\Firebase\ContactController::class, 'store'])->name('proyectista.store');
