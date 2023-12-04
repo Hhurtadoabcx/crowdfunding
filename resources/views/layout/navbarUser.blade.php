@@ -12,7 +12,7 @@
     <li class="upward"><a href="#">Mision</a></li>
     <li class="upward">
         @auth
-            <a href="#">Mi Bosque Personal</a>
+            <a href="{{ route('mi_bosque_personal') }}">Mi Bosque Personal</a>
         @else
             <a href="{{ route('login') }}">Mi Bosque Personal</a>
         @endauth

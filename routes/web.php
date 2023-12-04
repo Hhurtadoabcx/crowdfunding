@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Firebase\ContactController;
+use App\Http\Controllers\MiBosquePersonalController;
 use App\Http\Controllers\ProyectistaController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,15 @@ Route::get('/creaunproyecto', function () {
     return view('proyectista');
 })->middleware(['auth', 'admin.email.check']);
 
+
+Route::get('/mi_bosque_personal', [MiBosquePersonalController::class, 'mostrarBosquePersonal'])
+    ->middleware('auth')
+    ->name('mi_bosque_personal');
+
+
+Route::get('/verUbicacion/{firebaseId}', [MiBosquePersonalController::class, 'verUbicacion'])
+    ->middleware('auth')
+    ->name('verUbicacion');
 
 
 

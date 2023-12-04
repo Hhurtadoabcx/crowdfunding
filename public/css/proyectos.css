@@ -193,3 +193,8 @@ button {
     font-size: 50px;
     color: #ffffff;
 }
+
+.desc a {
+    color: green;
+    text-decoration:underline;
+}

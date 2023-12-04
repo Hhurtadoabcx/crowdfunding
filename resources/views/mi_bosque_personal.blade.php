@@ -1,0 +1,62 @@
+<!-- resources/views/mi_bosque_personal.blade.php -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Crowdfunding</title>
+    <!--CSS -->
+    <link rel="stylesheet" href="/css/proyectos.css">
+    <!--FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+@if(auth()->check())
+    @if(auth()->user()->email === 'admin@admin.com' || strpos(auth()->user()->email, '@admin') !== false)
+        @include('layout.navbarProy') <!-- Navbar para el administrador -->
+    @else
+        @include('layout.navbarUser') <!-- Navbar para otros usuarios autenticados -->
+    @endif
+@else
+    @include('layout.navbarUser') <!-- Navbar predeterminada para usuarios no autenticados -->
+@endif
+
+<div class="container">
+    <h2>Mi Bosque Personal</h2>
+
+    <div class="cards-container">
+        @if(count($donaciones) > 0)
+            @foreach($donaciones as $donacion)
+                <div class="card" id="cardClick">
+                    <div class="img-avatar">
+                        <svg viewBox="0 0 100 100">
+                        </svg>
+                    </div>
+                    <div class="card-text">
+                        <div class="portada">
+                            <!-- Aquí puedes agregar una imagen o cualquier otro elemento de diseño -->
+                        </div>
+                        <div class="title-total">
+                            <div class="title">{{ $donacion['nombre_proyecto'] }}</div>
+                            <h2> Total de Árboles Donados:
+                                {{ $donacion['cedro'] + $donacion['pino'] + $donacion['roble'] }}
+                            </h2>
+                            <div class="desc"><a href="{{ route('verUbicacion', ['firebaseId' => $donacion['id_proyecto']]) }}">Ver ubicación</a></div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        @else
+            <div style="text-align: center; margin-top: 50px;">
+                <h2 style="color: white;">Aún no tienes árboles en tu bosque :(</h2>
+            </div>
+        @endif
+    </div>
+</div>
+
+</body>
+
+</html>

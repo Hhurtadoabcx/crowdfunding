@@ -1,3 +1,4 @@
+<!-- resources/views/verproyectos.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,16 +14,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-    @if(auth()->check())
-        @if(auth()->user()->email === 'admin@admin.com' || strpos(auth()->user()->email, '@admin') !== false)
-            @include('layout.navbarProy') <!-- Navbar para el administrador -->
-        @else
-            @include('layout.navbarUser') <!-- Navbar para otros usuarios autenticados -->
-        @endif
+@if(auth()->check())
+    @if(auth()->user()->email === 'admin@admin.com' || strpos(auth()->user()->email, '@admin') !== false)
+        @include('layout.navbarProy') <!-- Navbar para el administrador -->
     @else
-        @include('layout.navbarUser') <!-- Navbar predeterminada para usuarios no autenticados -->
+        @include('layout.navbarUser') <!-- Navbar para otros usuarios autenticados -->
     @endif
+@else
+    @include('layout.navbarUser') <!-- Navbar predeterminada para usuarios no autenticados -->
+@endif
+
+<div class="container">
     <div class="disclaimer-section">
         <div class="header-container">
             <h2>Proyectos en Curso</h2>
@@ -30,36 +32,34 @@
         <div class="text-container">
             <p class="text-section">Estos son proyectos a los que puedes apoyar ahora mismo</p>
         </div>
-
     </div>
+
     <div class="cards-container">
-        @foreach($proyectistas as $firebaseId => $proyecto)
-            <a href="{{ url('/donar', $firebaseId) }}">
-                <!-- Resto del código -->
-            <div class="card" id="cardClick">
-                <div class="img-avatar">
-                    <svg viewBox="0 0 100 100">
-                    </svg>
-                </div>
-                <div class="card-text">
-                    <div class="portada">
-
+        @if(count($proyectistas) > 0)
+            @foreach($proyectistas as $firebaseId => $proyecto)
+                <a href="{{ url('/donar', $firebaseId) }}">
+                    <!-- Resto del código -->
+                    <div class="card" id="cardClick">
+                        <div class="img-avatar">
+                            <svg viewBox="0 0 100 100">
+                            </svg>
+                        </div>
+                        <div class="card-text">
+                            <div class="portada"></div>
+                            <div class="title-total">
+                                <div class="title">{{ $proyecto['nombre_completo'] }}</div>
+                                <h2> {{$proyecto['nombre_proyecto']}}</h2>
+                                <div class="desc">Morgan has collected ants since they were six years old and now has many dozen ants but none in their pants.</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="title-total">
-                        <div class="title">{{ $proyecto['nombre_completo'] }}</div>
-                        <h2> {{$proyecto['nombre_proyecto']}}
-
-
-                        </h2>
-
-                        <div class="desc">Morgan has collected ants since they were six years old and now has many dozen ants but none in their pants.</div>
-
-
-                    </div>
-                </div>
-            </div></a>
-        @endforeach
-
+                </a>
+            @endforeach
+        @else
+            <div style="text-align: center; margin-top: 50px;">
+                <h2 style="color: white;">En este momento no tenemos proyectos en curso</h2>
+            </div>
+        @endif
     </div>
 </div>
 </body>
