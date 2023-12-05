@@ -46,7 +46,9 @@ Route::get('/verUbicacion/{firebaseId}', [MiBosquePersonalController::class, 've
 
 
 
-Route::get('/donar/{id}', [ProyectistaController::class, 'mostrarArbol'])->name('mostrarArbol');
+Route::get('/donar/{id}', [ProyectistaController::class, 'mostrarArbol'])
+    ->middleware('auth')
+    ->name('mostrarArbol');
 
 Route::get('/verproyectos', [ProyectistaController::class, 'mostrarProyectos']);
 
@@ -59,7 +61,9 @@ Route::get('/editar/{proyectoId}', [ProyectistaController::class, 'editarProyect
 
 Route::post('/editar/{proyectoId}', [ProyectistaController::class, 'editarProyecto'])
     ->middleware(['auth', 'admin.email.check']);
-Route::post('/donar/{proyectoId}', [ProyectistaController::class, 'guardarDonacion'])->name('guardarDonacion');
+Route::post('/donar/{proyectoId}', [ProyectistaController::class, 'guardarDonacion'])
+    ->middleware('auth')
+    ->name('guardarDonacion');
 
 
 
