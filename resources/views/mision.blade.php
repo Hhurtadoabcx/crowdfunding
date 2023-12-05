@@ -2,12 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="pragma" content="no-cache">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Crowdfunding</title>
     <!--CSS -->
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/mision.css">
     <!--FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,35 +27,26 @@
     <!--Seccion de Bienvenida -->
     <div class="welcome-section">
         <div class="header-container">
-            <h2>CrowdFunding</h2>
+            <h2>Nuestra Misión</h2>
         </div>
         <div class="text-container">
-            <p class="text-section">Apoya a los proyectos de reforestacion de Bolivia</p>
+            <p class="text-section">Ayudar a reforestar Santa Cruz</p>
         </div>
-        <div class="boton-container">
-            @auth
-                <a href="/verproyectos" class="boton-donar">
-                    donar
-                </a>
-            @else
-                <a href="{{ route('login') }}" class="boton-donar">
-                    Donar
-                </a>
-            @endauth
-        </div>
+
     </div>
     <!-- Mision y arboles plantados -->
     <div class="secciones">
         <div class="donados">
             <div class="donados-container">
-                <h2 class="header-arboles">Arboles donados</h2>
-                <h3 class="nro-arboles">1.024</h3>
-                <p class="msg">Ayuda a reforestar Santa Cruz.</p>
+                <h2 class="header-arboles">Nuestra Misión</h2>
+                <p class="msg">Somos Tarumá</p>
                 <p class="msg2">
-                    Los árboles garantizan que el aire, el agua y los suelos se mantengan limpios y sanos.
-                    Cada uno de nosotros puede contribuir:
-                    elige cómo quieres actuar y salvaguardar tu futuro.
+                    Tarumá es un portal Crowdfunding, que busca apoyar a todas las iniciativas de reforestacion,
+                    dandoles facilidad para recibir donaciones y exposicion a gente dispuesta a colaborar
                 </p>
+                <a href="/verproyectos" class="boton-donar">
+                    Ver Proyectos
+                </a>
             </div>
         </div>
         <div class="mision">
@@ -80,6 +69,3 @@
 </body>
 </html>
 <?php
-
-
-?>

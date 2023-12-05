@@ -22,6 +22,9 @@ Route::get('/', function () {
 Route::get('/quienessomos', function () {
     return view('contribuidores/view');
 });
+Route::get('/mision', function () {
+    return view('mision');
+});
 
 Route::get('/creaunproyecto', function () {
     return view('proyectista');
