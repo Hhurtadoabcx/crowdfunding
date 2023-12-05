@@ -51,7 +51,7 @@
                             <div class="title-total">
                                 <div class="title">{{ $proyecto['nombre_completo'] }}</div>
                                 <h2> {{$proyecto['nombre_proyecto']}}</h2>
-                                <div class="desc">Morgan has collected ants since they were six years old and now has many dozen ants but none in their pants.</div>
+                                <div class="desc">{{$proyecto['datos_ref']}}</div>
                             </div>
                         </div>
                     </div>
