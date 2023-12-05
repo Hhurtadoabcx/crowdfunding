@@ -46,6 +46,17 @@ ul{
     font-size: 40px;
 
 }
+.text-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+.text-container h2{
+    color: #FFFFFF;
+    font-size: 30px;
+    font-weight: bold;
+}
 .cards-container{
 
     flex-direction: column;
@@ -137,7 +148,7 @@ ul{
     border: 6px solid white;
     background-image: linear-gradient(-60deg, #d4df0c 0%, #05332a 100%);
     top: 15px;
-    left: 225px;
+    left: 175px;
 }
 
 .card-text {
@@ -193,8 +204,16 @@ button {
     font-size: 50px;
     color: #ffffff;
 }
-
+.desc{
+    margin-top: 50px;
+}
 .desc a {
     color: green;
-    text-decoration:underline;
+    text-decoration:none;
+    font-size: 20px;
+}
+.desc a:hover{
+    color: #1a202c;
+    transition: 0.4s;
+
 }

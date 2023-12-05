@@ -178,6 +178,12 @@ ul{
     justify-content: space-around;
 
 }
+.boton{
+    display: flex;
+    justify-content: center;
+    padding-top: 70px;
+}
+
 .numberstyle{
     height: 40px;
     padding: 0;

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Crowdfunding</title>
     <!--CSS -->
-    <link rel="stylesheet" href="/css/proyectos.css">
+    <link rel="stylesheet" href="/css/mibosquepersonal.css">
     <!--FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,8 +27,9 @@
 @endif
 
 <div class="container">
-    <h2>Mi Bosque Personal</h2>
-
+    <div class="text-container">
+        <h2>Mi Bosque Personal</h2>
+    </div>
     <div class="cards-container">
         @if(count($donaciones) > 0)
             @foreach($donaciones as $donacion)
@@ -43,10 +44,14 @@
                         </div>
                         <div class="title-total">
                             <div class="title">{{ $donacion['nombre_proyecto'] }}</div>
-                            <h2> Total de Árboles Donados:
-                                {{ $donacion['cedro'] + $donacion['pino'] + $donacion['roble'] }}
+                            <h2>Total de Árboles Donados:
+                                {{
+                                    (isset($donacion['cedro']) ? $donacion['cedro'] : 0) +
+                                    (isset($donacion['pino']) ? $donacion['pino'] : 0) +
+                                    (isset($donacion['roble']) ? $donacion['roble'] : 0)
+                                }}
                             </h2>
-                            <div class="desc"><a href="{{ route('verUbicacion', ['firebaseId' => $donacion['id_proyecto']]) }}">Ver ubicación</a></div>
+                            <div class="desc"><a href="{{ route('verUbicacion', ['firebaseId' => $donacion['id_proyecto']]) }}" class="verubi">Ver ubicación</a></div>
                         </div>
                     </div>
                 </div>

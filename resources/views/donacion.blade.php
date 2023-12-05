@@ -59,8 +59,9 @@
                                 </div>
                             @endforeach
                         </div>
-
+                        <div class="boton">
                         <button type="submit" class="boton-confirmar">Confirmar Donación</button>
+                        </div>
                     </form>
                     <div class="cont-info">
                         <h2>Creador del proyecto: {{ $nombreCreador }}</h2>

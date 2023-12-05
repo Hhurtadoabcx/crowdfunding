@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="/css/styleNavbar.css">
-    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="pragma" content="no-cache">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
     <script>
         function confirmLogout() {
@@ -20,10 +18,10 @@
     <li class="upward"><a href="/gestionar">Gestionar Proyecto</a></li>
     <li class="upward"><a href="/creaunproyecto">Registrar Proyecto</a></li>
     <li class="upward"><a href="/quienessomos">Quienes Somos</a></li>
-    <li class="upward"><a href="/mision">Mision</a></li>
+    <li class="upward"><a href="mision">Mision</a></li>
     <li class="upward">
         @auth
-            <a href="{{ route('mi_bosque_personal') }}">Mi Bosque Personal</a>
+            <a href="/mi_bosque_personal">Mi Bosque Personal</a>
         @else
             <a href="{{ route('login') }}">Mi Bosque Personal</a>
         @endauth

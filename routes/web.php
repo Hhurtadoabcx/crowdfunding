@@ -26,6 +26,10 @@ Route::get('/mision', function () {
     return view('mision');
 });
 
+Route::get('/mision', function () {
+    return view('mision');
+});
+
 Route::get('/creaunproyecto', function () {
     return view('proyectista');
 })->middleware(['auth', 'admin.email.check']);
