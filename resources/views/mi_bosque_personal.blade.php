@@ -44,6 +44,9 @@
                         </div>
                         <div class="title-total">
                             <div class="title">{{ $donacion['nombre_proyecto'] }}</div>
+                            <h2>Cedros: {{ isset($donacion['cedro']) ? $donacion['cedro'] : 0 }}</h2>
+                            <h2>Pinos: {{ isset($donacion['pino']) ? $donacion['pino'] : 0 }}</h2>
+                            <h2>Robles: {{ isset($donacion['roble']) ? $donacion['roble'] : 0 }}</h2>
                             <h2>Total de Árboles Donados:
                                 {{
                                     (isset($donacion['cedro']) ? $donacion['cedro'] : 0) +

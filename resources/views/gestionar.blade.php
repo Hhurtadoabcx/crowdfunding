@@ -1,3 +1,4 @@
+<!-- resources/views/ver_proyectos.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,8 +54,14 @@
                                 <div class="title">{{ $proyecto['nombre_completo'] }}</div>
                                 <h2>{{ $proyecto['nombre_proyecto'] }}</h2>
                                 <div class="desc">Morgan has collected ants since they were six years old and now has many dozen ants but none in their pants.</div>
+                                <p>Total de Árboles Donados:
+                                    {{
+                                        (isset($proyecto['cedro']) ? $proyecto['cedro'] : 0) +
+                                        (isset($proyecto['pino']) ? $proyecto['pino'] : 0) +
+                                        (isset($proyecto['roble']) ? $proyecto['roble'] : 0)
+                                    }}
+                                </p>
                                 <a href="{{ url('/editar', $firebaseId) }}">
-
                                     <button>Editar</button>
                                 </a>
                             </div>
@@ -62,12 +69,12 @@
                     </div>
                 </a>
             @endforeach
-                @else
-                    <div class="no-proyectos-message">
-                        <p>{{ isset($mensaje) ? $mensaje : 'No tienes proyectos. ¡Crea uno ahora!' }}</p>
-                    </div>
-                @endif
         </div>
+    @else
+        <div class="no-proyectos-message">
+            <p>{{ isset($mensaje) ? $mensaje : 'No tienes proyectos. ¡Crea uno ahora!' }}</p>
+        </div>
+    @endif
 
 </div>
 </body>
