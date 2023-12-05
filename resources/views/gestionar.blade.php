@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Crowdfunding</title>
     <!--CSS -->
-    <link rel="stylesheet" href="/css/proyectos.css">
+    <link rel="stylesheet" href="/css/gestionar.css">
     <!--FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
