@@ -1,0 +1,205 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #05332a;
+}
+
+a{
+    color: #05332a;
+    font-family: 'Work Sans', sans-serif;
+    text-decoration: none;
+}
+
+.nav-main{
+    font-family: 'Work Sans', sans-serif;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 60px;
+    width: 100vh;
+}
+
+.nav-main ul{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 100px;
+}
+.nav-main ul li{
+    padding: 10px;
+    font-size: 20px;
+}
+
+.nav-main ul li a:hover{
+    color: #1f924f;
+    transition: 1s;
+}
+ul{
+    list-style: none;
+}
+.nav-main h1{
+    flex: 2;
+    text-align: center;
+    font-size: 40px;
+
+}
+.cards-container{
+
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #05332a;
+    align-items: center;
+    font-family: Roboto, sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+
+    justify-items: center;
+
+}
+.welcome-section h1{
+    text-align: center;
+    width: 100%;
+}
+.header-container{
+    color: #ffffff;
+    font-size: 46px;
+    width: 1000px;
+    text-align: center;
+}
+.text-section{
+    color: #f2e8cf!important;
+    font-size: 20px;
+    margin-top: 20px;
+}
+.boton-container{
+    margin-top: 35px;
+
+}
+.disclaimer-section{
+    display: flex;
+    background: #718096;
+    align-items: center;
+    justify-content: center;
+    height: 650px;
+    flex-direction: column;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)),url("/images/proyectista-arbol.jpg");
+    font-family: 'Work Sans', sans-serif;
+}
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+.card {
+    background: #fff;
+    height: 200px;
+    margin-top: 50px;
+    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.5);
+    max-width: 800px;
+    width: 770px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    border-radius: 25px;
+    position: relative;
+}
+.card h2 {
+    margin: 0;
+    padding: 0 2rem;
+}
+.card .title {
+    margin-top: -20px;
+    padding: 0.5rem;
+    text-align: right;
+    color: green;
+    font-weight: bold;
+    font-size: 18px;
+}
+.card .desc {
+    padding: 0.5rem 2rem;
+    font-size: 12px;
+}
+.card .actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+.card svg {
+    width: 85px;
+    height: 85px;
+    margin: 0 auto;
+}
+
+.img-avatar {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    border-radius: 50%;
+    border: 6px solid white;
+    background-image: linear-gradient(-60deg, #d4df0c 0%, #05332a 100%);
+    top: 15px;
+    left: 200px;
+}
+
+.card-text {
+    display: flex;
+    width: 100%;
+
+}
+
+.title-total {
+    padding: 2.5em 1.5em 1.5em 1.5em;
+    background-color: #f2e8cf;
+    border-radius: 0 20px 20px 0;
+    flex: 2;
+}
+
+path {
+    fill: white;
+
+}
+
+.img-portada {
+    width: 100%;
+}
+
+.portada {
+    width: 240px;
+    flex: 1;
+    height: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-image: url("/images/foto-mision2.jpg");
+    background-position: bottom center;
+    background-size: cover;
+}
+
+button {
+    border: none;
+    background: none;
+    font-size: 24px;
+    color: #05332a;
+    cursor: pointer;
+    transition:.5s;
+    margin-top: 20px;
+    &:hover{
+        color: #4CAF50  ;
+        transform: rotate(22deg)
+    }
+}
+
+.no-proyectos-message {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.no-proyectos-message p {
+    font-size: 50px;
+    color: #ffffff;
+}
+
+.desc a {
+    color: green;
+    text-decoration:underline;
+}
