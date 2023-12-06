@@ -34,7 +34,7 @@
             <h2>Proyectos en Curso</h2>
         </div>
         <div class="text-container">
-            <p class="text-section">Estos son proyectos a los que puedes apoyar ahora mismo</p>
+            <p class="text-section">Estos son proyectos que puedes administrar</p>
         </div>
     </div>
 
