@@ -31,10 +31,10 @@
 
     <div class="disclaimer-section">
         <div class="header-container">
-            <h2>Proyectos en Curso</h2>
+            <h2>Proyectos creados</h2>
         </div>
         <div class="text-container">
-            <p class="text-section">Estos son proyectos a los que puedes apoyar ahora mismo</p>
+            <p class="text-section">Estos son proyectos a los tú haz creado</p>
         </div>
     </div>
 
