@@ -75,12 +75,12 @@
                         </div>
 
                         <label>Coordenadas:
-                            <input  id="latitud" name="latitud" placeholder="latitud" type="hidden"required>
-                            <input  id="longitud" name="longitud" placeholder="longitud" type="hidden"required>
-                            <input  id="coordenadas" name="coordenadas" placeholder="coordenadas" type="hidden"required>
-                            <div id="MapDiv" name="mapa" style="height: 300px; width:500px"></div>
 
                         </label>
+                        <input  id="latitud" name="latitud" placeholder="latitud" type="hidden"required>
+                        <input  id="longitud" name="longitud" placeholder="longitud" type="hidden"required>
+                        <input  id="coordenadas" name="coordenadas" placeholder="coordenadas" type="hidden"required>
+                        <div id="MapDiv" name="mapa" ></div>
                         <div class="submit-container">
                             <button type="submit" class="btn-submit">Guardar Cambios</button>
                         </div>

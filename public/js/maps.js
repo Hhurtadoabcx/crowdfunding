@@ -1,20 +1,16 @@
 var mapa;
-var marcador; // Variable para almacenar el marcador único
-var marcadorPosicion; // Variable para almacenar la posición del marcador
+var marcador;
+var marcadorPosicion;
 
 function agregarMarcador(mapa, posicion) {
     // Eliminar cualquier marcador existente
     if (marcador) {
         marcador.setMap(null);
     }
-
-    // Crear un nuevo marcador en la posición proporcionada
     marcador = new google.maps.Marker({
         position: posicion,
         map: mapa
     });
-
-    // Actualizar los campos de latitud y longitud en el formulario
     marcadorPosicion = posicion;
     if (marcadorPosicion) {
         var latitud = marcadorPosicion.lat();
@@ -23,8 +19,6 @@ function agregarMarcador(mapa, posicion) {
         console.log('Longitud:', longitud);
         document.getElementById('latitud').value = latitud;
         document.getElementById('longitud').value = longitud;
-
-        // Actualizar el campo de coordenadas
         document.getElementById('coordenadas').value = latitud + ',' + longitud;
     }
 }
@@ -46,7 +40,10 @@ function initMap() {
 }
 
 function submitForm() {
-    // Update hidden input field with latitude and longitude
+    if (!marcadorPosicion) {
+        alert('Por favor, seleccione una ubicación en el mapa.');
+        return false;
+    }
     if (marcadorPosicion) {
         var latitud = marcadorPosicion.lat();
         var longitud = marcadorPosicion.lng();
@@ -54,11 +51,7 @@ function submitForm() {
         console.log('Longitud:', longitud);
         document.getElementById('latitud').value = latitud;
         document.getElementById('longitud').value = longitud;
-
-        // Update the coordinates field
         document.getElementById('coordenadas').value = latitud + ',' + longitud;
     }
-
-    // Continue with form submission
     return true;
 }

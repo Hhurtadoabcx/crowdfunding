@@ -90,8 +90,7 @@
                                     <input  id="latitud" name="latitud" placeholder="latitud" type="hidden"required>
                                     <input  id="longitud" name="longitud" placeholder="longitud" type="hidden"required>
                                     <input  id="coordenadas" name="coordenadas" placeholder="coordenadas" type="hidden"required>
-                                    <div id="MapDiv" name="mapa">
-
+                                    <div id="MapDiv" name="mapa " required>
                                     </div>
                                 </div>
                             </div>
