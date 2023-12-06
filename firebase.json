@@ -1,0 +1,16 @@
+{
+    "hosting": {
+        "public": "resources/views",
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**"
+        ],
+        "rewrites": [
+            {
+                "source": "**",
+                "destination": "/home.blade.php"
+            }
+        ]
+    }
+}
