@@ -29,7 +29,7 @@
     <!--Seccion de Bienvenida -->
     <div class="welcome-section">
         <div class="header-container">
-            <h2>CrowdFunding</h2>
+            <h2>Tarumá</h2>
         </div>
         <div class="text-container">
             <p class="text-section">Apoya a los proyectos de reforestacion de Bolivia</p>

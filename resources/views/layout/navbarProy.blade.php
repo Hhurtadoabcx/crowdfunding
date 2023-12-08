@@ -13,7 +13,7 @@
 </head>
 <body>
 <ul class="nav-links">
-    <li class="titulo">CrowdFunding</li>
+    <li class="titulo">Tarumá</li>
     <li class="upward"><a href="/verproyectos">Ver Proyectos</a></li>
     <li class="upward"><a href="/gestionar">Gestionar Proyecto</a></li>
     <li class="upward"><a href="/creaunproyecto">Registrar Proyecto</a></li>

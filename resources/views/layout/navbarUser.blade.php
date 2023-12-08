@@ -8,7 +8,7 @@
 </head>
 <body>
 <ul class="nav-links">
-    <li class="titulo">CrowdFunding</li>
+    <li class="titulo">Tarumá</li>
     <li class="upward"><a href="/verproyectos">Ver Proyectos</a></li>
     <li class="upward"><a href="/quienessomos">Quienes Somos</a></li>
     <li class="upward"><a href="/mision">Mision</a></li>
